@@ -1,0 +1,71 @@
+---
+
+---
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const themeSwitcher = document.getElementById("themeSwitcher");
+
+        const userTheme = localStorage.getItem("theme");
+        const systemTheme = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+        ).matches;
+
+        const themeCheck = () => {
+            if (userTheme === "dark") {
+                document.documentElement.classList.add("dark");
+            } else if (userTheme === "light") {
+                document.documentElement.classList.remove("dark");
+            } else {
+                if (systemTheme) {
+                    document.documentElement.classList.add("dark");
+                } else {
+                    document.documentElement.classList.remove("dark");
+                }
+            }
+        };
+
+        const themeSwitch = () => {
+            if (document.documentElement.classList.contains("dark")) {
+                document.documentElement.classList.remove("dark");
+                localStorage.setItem("theme", "light");
+            } else {
+                document.documentElement.classList.add("dark");
+                localStorage.setItem("theme", "dark");
+            }
+        };
+
+        themeSwitcher?.addEventListener("click", () => {
+            themeSwitch();
+        });
+
+        themeCheck();
+    });
+</script>
+
+<header
+    class="w-full flex justify-between items-center p-3 px-10 rounded-xl border border-white/10 shadow-inner shadow-white/25 bg-black/25 backdrop-blur-3xl"
+>
+    <h1 class="uppercase font-bold text-lg">//She . JS</h1>
+    <nav class="flex gap-5 transition-transform">
+        <a href="#hero" class="hover:font-semibold">Nosotros</a>
+        <a href="#requirements" class="hover:font-semibold">Requerimientos</a>
+        <a href="#sponsors" class="hover:font-semibold">Sponsors</a>
+    </nav>
+    <div class="flex gap-3 items-center content-center">
+        <a
+            href="/temas"
+            class="rounded-full from-indigo-400 via-pink-500 to-purple-500 bg-gradient-to-r p-[2px]"
+        >
+            <span
+                class="block text-black px-4 py-1 font-semibold rounded-full bg-white hover:bg-transparent hover:text-white transition"
+                >Comenzar!</span
+            >
+        </a>
+        <div class="cursor-pointer">ES</div>
+        <button class="cursor-pointer" id="themeSwitcher">
+            <p class="hidden dark:block">🌞</p>
+            <p class="block dark:hidden">🌙</p>
+        </button>
+    </div>
+</header>
