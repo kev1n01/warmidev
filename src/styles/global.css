@@ -19,3 +19,18 @@
         background: #ad7474;
     }
 }
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/assets/fonts/montserrat.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Buycat';
+    src: url('src/assets/fonts/buycat.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Sakurata';
+    src: url('src/assets/fonts/sakurata.ttf') format('truetype');
+}

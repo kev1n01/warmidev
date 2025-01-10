@@ -3,7 +3,14 @@ export default {
 	darkMode: 'class',
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				sans: ['Arial', 'sans-serif'],
+				monts: ['"Montserrat"', 'sans-serif'],
+				buycat: ['"Buycat"', 'sans-serif'],
+				saku: ['"Sakurata"', 'sans-serif'],
+			},
+		},
 	},
 	plugins: [],
 }
