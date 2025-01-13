@@ -36,6 +36,18 @@ const { title }: Props = Astro.props;
 			</main>
 			<Footer />
 		</div>
+		<script>
+			let previosTitle = document.title;
+
+			window.addEventListener("blur", () => {
+				previosTitle = document.title;
+				document.title = "No te vayas 🥺💔";
+			});
+
+			window.addEventListener("focus", () => {
+				document.title = previosTitle;
+			});
+		</script>
 	</body>
 </html>
 
