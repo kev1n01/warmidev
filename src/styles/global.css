@@ -22,15 +22,15 @@
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('src/assets/fonts/montserrat.ttf') format('truetype');
+    src: url('../assets/font/montserrat.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Buycat';
-    src: url('src/assets/fonts/buycat.ttf') format('truetype');
+    src: url('../assets/font/buycat.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Sakurata';
-    src: url('src/assets/fonts/sakurata.ttf') format('truetype');
+    src: url('../assets/font/sakurata.ttf') format('truetype');
 }
