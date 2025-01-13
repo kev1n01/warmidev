@@ -7,6 +7,13 @@ import translateIcon from "@assets/icons/translate_icon.svg";
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const themeSwitcher = document.getElementById("themeSwitcher");
+const nav = document.querySelector("nav");
+        const comenzarButton = document.querySelector("a[href='/temas']");
+
+        if (window.location.pathname === "/temas") {
+            if (nav) nav.style.display = "none";
+            if (comenzarButton) comenzarButton.style.display = "none"; 
+        }
 
         const userTheme = localStorage.getItem("theme");
         const systemTheme = window.matchMedia(
