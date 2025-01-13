@@ -1,5 +1,7 @@
 ---
-
+import femaleIcon from "@assets/icons/female_sign_icon.svg";
+import maleIcon from "@assets/icons/male_sign_icon.svg";
+import translateIcon from "@assets/icons/translate_icon.svg";
 ---
 
 <script>
@@ -62,10 +64,20 @@
                 >Comenzar!</span
             >
         </a>
-        <div class="cursor-pointer">ES</div>
+        <div class="cursor-pointer flex items-center gap-1">
+            <img src={translateIcon.src} alt="translate icon" class="w-5" />
+        </div>
         <button class="cursor-pointer" id="themeSwitcher">
-            <p class="hidden dark:block">🌞</p>
-            <p class="block dark:hidden">🌙</p>
+            <p class="hidden dark:block">
+                <img
+                    src={femaleIcon.src}
+                    alt="female icon"
+                    class="text-white"
+                />
+            </p>
+            <p class="block dark:hidden">
+                <img src={maleIcon.src} alt="male icon" />
+            </p>
         </button>
     </div>
 </header>
