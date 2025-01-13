@@ -1,0 +1,114 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const semanas = await getCollection("semanas");
+// Ordenar las semanas por número
+const semanasOrdenadas = semanas.sort((a, b) => a.data.numero - b.data.numero);
+---
+
+<Layout title="Temas por Semana">
+    <div class="max-w-6xl mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-8">Temas por Semana</h1>
+
+        <div class="mb-8">
+            <label
+                for="semanaSelector"
+                class="block text-sm font-medium text-gray-700 mb-2"
+            >
+                Filtrar por Semana
+            </label>
+            <select
+                id="semanaSelector"
+                class="w-full md:w-64 p-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-slate-900"
+            >
+                <option value="todas">Todas las semanas</option>
+                {
+                    semanasOrdenadas.map((semana) => (
+                        <option value={semana.data.numero}>
+                            Semana {semana.data.numero}
+                        </option>
+                    ))
+                }
+            </select>
+        </div>
+
+        <div class="space-y-12" id="semanasContainer">
+            {
+                semanasOrdenadas.map((semana) => (
+                    <div
+                        class="border rounded-lg p-6 bg-white shadow-sm semana-container"
+                        data-semana={semana.data.numero}
+                    >
+                        <div class="mb-6">
+                            <div class="mb-6">
+                                <h3 class="text-lg font-medium mb-2 text-slate-800">
+                                    Recursos de la semana:
+                                </h3>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    {semana.data.recursos.map((recurso) => (
+                                        <li>
+                                            <a
+                                                href={recurso.url}
+                                                class="text-blue-600 hover:underline"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                {recurso.nombre}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="grid gap-4 md:grid-cols-2">
+                            {semana.data.temas.map((tema) => (
+                                <article class="border rounded-lg p-4 hover:shadow-md transition-shadow">
+                                    <h3 class="text-xl font-medium mb-2">
+                                        <a
+                                            href={`/temas/${tema.slug}`}
+                                            class="text-indigo-600 hover:text-indigo-800"
+                                        >
+                                            {tema.titulo}
+                                        </a>
+                                    </h3>
+                                    <p class="text-gray-600 text-sm">
+                                        {tema.descripcion}
+                                    </p>
+                                </article>
+                            ))}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</Layout>
+
+<script>
+    function filtrarPorSemana(semanaSeleccionada: string) {
+        const contenedores = document.querySelectorAll(".semana-container");
+
+        contenedores.forEach((contenedor) => {
+            const semanaNumero = contenedor.getAttribute("data-semana");
+            if (
+                semanaSeleccionada === "todas" ||
+                semanaNumero === semanaSeleccionada
+            ) {
+                (contenedor as HTMLElement).style.display = "block";
+            } else {
+                (contenedor as HTMLElement).style.display = "none";
+            }
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const selector = document.getElementById("semanaSelector");
+
+        selector?.addEventListener("change", (e) => {
+            const selectedValue = (e.target as HTMLSelectElement).value;
+            filtrarPorSemana(selectedValue);
+        });
+    });
+</script>
