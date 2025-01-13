@@ -50,6 +50,16 @@ const nav = document.querySelector("nav");
 
         themeCheck();
     });
+
+    const header = document.querySelector("header");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 0) {
+            header?.classList.add("bg-black/50");
+        } else {
+            header?.classList.remove("bg-black/50");
+        }
+    });
 </script>
 
 <header
