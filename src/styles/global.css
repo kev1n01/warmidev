@@ -18,6 +18,8 @@
     ::-webkit-scrollbar-thumb {
         background: #ad7474;
     }
+    ::selection { background: #7e5578; }
+    .dark ::selection { background: #5d7597; }
 }
 
 @font-face {
