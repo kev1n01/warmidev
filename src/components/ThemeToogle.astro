@@ -1,0 +1,52 @@
+---
+import moon from "@assets/icons/moon.svg";
+import sun from "@assets/icons/sun.svg";
+---
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const themeSwitcher = document.getElementById("themeSwitcher");
+
+        const userTheme = localStorage.getItem("theme");
+        const systemTheme = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+        ).matches;
+
+        const themeCheck = () => {
+            if (userTheme === "dark") {
+                document.documentElement.classList.add("dark");
+            } else if (userTheme === "light") {
+                document.documentElement.classList.remove("dark");
+            } else {
+                if (systemTheme) {
+                    document.documentElement.classList.add("dark");
+                } else {
+                    document.documentElement.classList.remove("dark");
+                }
+            }
+        };
+
+        const themeSwitch = () => {
+            if (document.documentElement.classList.contains("dark")) {
+                document.documentElement.classList.remove("dark");
+                localStorage.setItem("theme", "light");
+            } else {
+                document.documentElement.classList.add("dark");
+                localStorage.setItem("theme", "dark");
+            }
+        };
+
+        themeSwitcher?.addEventListener("click", () => {
+            themeSwitch();
+        });
+
+        themeCheck();
+    });
+</script>
+<button class="cursor-pointer" id="themeSwitcher">
+    <p class="hidden dark:block">
+        <img src={sun.src} alt="sun icon" />
+    </p>
+    <p class="block dark:hidden">
+        <img src={moon.src} alt="moon icon" class="text-white" />
+    </p>
+</button>

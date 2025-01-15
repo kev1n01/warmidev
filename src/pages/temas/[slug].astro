@@ -25,13 +25,13 @@ const { tema, semanaNumero, semanaDescripcion, recursos } = Astro.props;
         <div class="mb-8">
             <a
                 href="/temas"
-                class="text-indigo-600 hover:text-indigo-800 mb-4 inline-block"
+                class="dark:text-blue-400 text-blue-900 hover:text-blue-800 font-semibold mb-4 inline-block"
             >
                 ← Volver a temas
             </a>
-            <p class="text-sm text-gray-600 mb-2">Semana {semanaNumero}</p>
+            <p class="text-sm dark:text-white text-gray-900 font-semibold mb-2">Semana {semanaNumero}</p>
             <h1 class="text-3xl font-bold mb-4">{tema.titulo}</h1>
-            <p class="text-gray-700">{tema.descripcion}</p>
+            <p class="dark:text-white text-gray-900 font-semibold">{tema.descripcion}</p>
         </div>
 
         <div class="grid gap-8 md:grid-cols-2">
@@ -43,7 +43,7 @@ const { tema, semanaNumero, semanaDescripcion, recursos } = Astro.props;
                             <h3 class="text-lg font-medium mb-2">
                                 {tarea.titulo}
                             </h3>
-                            <p class="text-gray-600">{tarea.descripcion}</p>
+                            <p class="dark:text-white text-gray-900 font-semibold">{tarea.descripcion}</p>
                         </div>
                     ))
                 }
@@ -60,7 +60,7 @@ const { tema, semanaNumero, semanaDescripcion, recursos } = Astro.props;
                                 <li>
                                     <a
                                         href={recurso.url}
-                                        class="text-blue-600 hover:underline"
+                                        class="dark:text-blue-400 text-blue-800 font-semibold hover:underline"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
