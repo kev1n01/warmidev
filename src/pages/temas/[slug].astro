@@ -1,0 +1,77 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+    const semanas = await getCollection("semanas");
+    return semanas.flatMap((semana) =>
+        semana.data.temas.map((tema) => ({
+            params: { slug: tema.slug },
+            props: {
+                tema,
+                semanaNumero: semana.data.numero,
+                semanaDescripcion: semana.data.descripcion,
+                recursos: semana.data.recursos,
+            },
+        })),
+    );
+}
+
+const { tema, semanaNumero, semanaDescripcion, recursos } = Astro.props;
+---
+
+<Layout title={tema.titulo}>
+    <div class="max-w-4xl mx-auto p-6">
+        <div class="mb-8">
+            <a
+                href="/temas"
+                class="dark:text-blue-400 text-blue-900 hover:text-blue-800 font-semibold mb-4 inline-block"
+            >
+                ← Volver a temas
+            </a>
+            <p class="text-sm dark:text-white text-gray-900 font-semibold mb-2">Semana {semanaNumero}</p>
+            <h1 class="text-3xl font-bold mb-4">{tema.titulo}</h1>
+            <p class="dark:text-white text-gray-900 font-semibold">{tema.descripcion}</p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2">
+            <div class="space-y-6">
+                <h2 class="text-2xl font-semibold mb-4">Tareas</h2>
+                {
+                    tema.tareas.map((tarea) => (
+                        <div class="border rounded-lg p-4">
+                            <h3 class="text-lg font-medium mb-2">
+                                {tarea.titulo}
+                            </h3>
+                            <p class="dark:text-white text-gray-900 font-semibold">{tarea.descripcion}</p>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-semibold mb-4">
+                    Recursos de la semana
+                </h2>
+                <div class="border rounded-lg p-4">
+                    <ul class="space-y-2">
+                        {
+                            recursos.map((recurso) => (
+                                <li>
+                                    <a
+                                        href={recurso.url}
+                                        class="dark:text-blue-400 text-blue-800 font-semibold hover:underline"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {recurso.nombre}
+                                    </a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>

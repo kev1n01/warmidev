@@ -1,71 +1,140 @@
 ---
-
+import ThemeToogle from "@/components/ThemeToogle.astro";
+import translateIcon from "@assets/icons/translate_icon.svg";
+import menu from "@assets/icons/menu.svg";
+import x from "@assets/icons/x.svg";
 ---
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const themeSwitcher = document.getElementById("themeSwitcher");
-
-        const userTheme = localStorage.getItem("theme");
-        const systemTheme = window.matchMedia(
-            "(prefers-color-scheme: dark)",
-        ).matches;
-
-        const themeCheck = () => {
-            if (userTheme === "dark") {
-                document.documentElement.classList.add("dark");
-            } else if (userTheme === "light") {
-                document.documentElement.classList.remove("dark");
-            } else {
-                if (systemTheme) {
-                    document.documentElement.classList.add("dark");
-                } else {
-                    document.documentElement.classList.remove("dark");
-                }
-            }
-        };
-
-        const themeSwitch = () => {
-            if (document.documentElement.classList.contains("dark")) {
-                document.documentElement.classList.remove("dark");
-                localStorage.setItem("theme", "light");
-            } else {
-                document.documentElement.classList.add("dark");
-                localStorage.setItem("theme", "dark");
-            }
-        };
-
-        themeSwitcher?.addEventListener("click", () => {
-            themeSwitch();
-        });
-
-        themeCheck();
-    });
-</script>
-
 <header
-    class="w-full flex justify-between items-center p-3 px-10 rounded-xl border border-white/10 shadow-inner shadow-white/25 bg-black/25 backdrop-blur-3xl"
+    class="w-full flex justify-between items-center p-3 px-10 rounded-xl border border-white/10 shadow-inner shadow-white/50 bg-black/25 backdrop-blur-3xl sticky top-3 z-10"
+    id="header"
 >
-    <h1 class="uppercase font-bold text-lg">//She . JS</h1>
-    <nav class="flex gap-5 transition-transform">
-        <a href="#hero" class="hover:font-semibold">Nosotros</a>
-        <a href="#requirements" class="hover:font-semibold">Requerimientos</a>
-        <a href="#sponsors" class="hover:font-semibold">Sponsors</a>
+    <h1 class="font-bold text-xl sm:text-2xl font-buycat">
+        {"WARMI * DEV"}
+    </h1>
+
+    <!-- Desktop Navigation -->
+    <nav
+        class="gap-5 text-gray-300 font-semibold sm:flex hidden"
+        id="desktop-nav"
+    >
+        <!-- <a href="#hero" class="hover:text-white transition-colors">Nosotros</a> -->
+        <a href="#goals" class="hover:text-white transition-colors"
+            >Objetivos</a
+        >
+        <a href="#sponsors" class="hover:text-white transition-colors"
+            >Sponsors</a
+        >
     </nav>
-    <div class="flex gap-3 items-center content-center">
-        <a
+
+    <!-- Right side controls -->
+    <div class="flex gap-3 items-center">
+        <!-- <a
             href="/temas"
-            class="rounded-full from-indigo-400 via-pink-500 to-purple-500 bg-gradient-to-r p-[2px]"
+            class="rounded-full from-indigo-400 via-pink-500 to-purple-500 bg-gradient-to-r p-[2px] dark:from-blue-400 dark:via-slate-500 dark:to-sky-400"
+            id="comenzar-btn"
         >
             <span
-                class="block text-black px-4 py-1 font-semibold rounded-full bg-white hover:bg-transparent hover:text-white transition"
-                >Comenzar!</span
+                class="block text-gray-800 px-4 py-1 font-semibold rounded-full bg-white/40 hover:bg-transparent hover:text-white transition"
             >
-        </a>
-        <div class="cursor-pointer">ES</div>
-        <button class="cursor-pointer" id="themeSwitcher">
-            <p class="hidden dark:block">🌞</p>
-            <p class="block dark:hidden">🌙</p>
+                Comenzar
+            </span>
+        </a> -->
+        <div
+            class="cursor-pointer flex items-center gap-1 px-2 py-1 hover:bg-white/10 rounded-full transition-colors content-center text-sm"
+        >
+            <img src={translateIcon.src} alt="translate icon" class="w-4" />
+            ES
+        </div>
+        <ThemeToogle />
+
+        <!-- Mobile Menu Button -->
+        <button
+            class="sm:hidden flex p-2 hover:bg-white/10 rounded-full transition-colors"
+            id="menu-toggle"
+            aria-label="Toggle menu"
+        >
+            <img src={menu.src} alt="Menu" class="w-6 h-6" id="menu-icon" />
+            <img
+                src={x.src}
+                alt="Close menu"
+                class="w-6 h-6 hidden"
+                id="close-icon"
+            />
         </button>
     </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div
+        class="absolute top-full left-0 right-0 mt-3 py-4 px-2 bg-black/80 backdrop-blur-3xl shadow-inner shadow-white/50  rounded-xl border border-white/10 sm:hidden hidden"
+        id="mobile-menu"
+    >
+        <nav class="flex flex-col gap-4 text-gray-300 font-semibold">
+            <!-- <a
+                href="#hero"
+                class="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg"
+            >
+                Nosotros
+            </a> -->
+            <a
+                href="#goals"
+                class="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg"
+            >
+                Objetivos
+            </a>
+            <a
+                href="#sponsors"
+                class="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg"
+            >
+                Sponsors
+            </a>
+        </nav>
+    </div>
 </header>
+
+<script>
+    // Manejo del scroll
+    const header = document.querySelector("#header");
+    const handleScroll = () => {
+        if (window.scrollY > 0) {
+            header?.classList.add("bg-black/50");
+            header?.classList.remove("bg-black/25");
+        } else {
+            header?.classList.add("bg-black/25");
+            header?.classList.remove("bg-black/50");
+        }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    // Manejo del menú móvil
+    const menuToggle = document.querySelector("#menu-toggle");
+    const mobileMenu = document.querySelector("#mobile-menu");
+    const menuIcon = document.querySelector("#menu-icon");
+    const closeIcon = document.querySelector("#close-icon");
+
+    menuToggle?.addEventListener("click", () => {
+        mobileMenu?.classList.toggle("hidden");
+        menuIcon?.classList.toggle("hidden");
+        closeIcon?.classList.toggle("hidden");
+    });
+
+    // Ocultar elementos en la página /temas
+    document.addEventListener("DOMContentLoaded", () => {
+        if (window.location.pathname.startsWith("/temas")) {
+            const nav = document.querySelector("#desktop-nav");
+            const comenzarBtn = document.querySelector("#comenzar-btn");
+            if (nav) nav.style.display = "none";
+            comenzarBtn?.classList.add("hidden");
+        }
+    });
+
+    // Cerrar menú móvil al hacer click en un enlace
+    const mobileLinks = document.querySelectorAll("#mobile-menu a");
+    mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            mobileMenu?.classList.add("hidden");
+            menuIcon?.classList.remove("hidden");
+            closeIcon?.classList.add("hidden");
+        });
+    });
+</script>

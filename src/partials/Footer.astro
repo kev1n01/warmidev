@@ -1,8 +1,25 @@
-<footer class="w-full flex justify-between items-center p-5 px-20 border-t border-white/10 pt-10">
-    <h1>Shejs.tech</h1>
+---
+import github from "@assets/icons/github.svg";
+import tiktok from "@assets/icons/tiktok.svg";
+
+---
+
+<footer
+    class="w-full flex justify-between items-center p-5 px-20 border-t border-white/10"
+>
+    <h1 class="font-bold text-xl sm:text-2xl font-buycat">
+        {"WARMI * DEV"}
+    </h1>
+    <!-- <h1 class="font-bold text-2xl font-saku hidden dark:block">He*JS</h1> -->
     <div class="flex gap-3">
-        <a href="">G</a>
-        <a href="">A</a>
-        <a href="">L</a>
+        <a  target="_blank" href="https://github.com/kev1n01">
+            <img src={github.src} alt="github" class="w-6 h-6" id="github-icon" />
+        </a>
+        <a  target="_blank" href="https://github.com/Transformacion-Digital-UDH">
+            <img src={github.src} alt="github" class="w-6 h-6" id="github-icon" />
+        </a>
+        <a  target="_blank" href="https://www.tiktok.com/@transformaciondigitaludh">
+            <img src={tiktok.src} alt="Tiktok" class="w-6 h-6" id="tiktok-icon" />
+        </a>
     </div>
 </footer>

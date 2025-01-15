@@ -18,4 +18,21 @@
     ::-webkit-scrollbar-thumb {
         background: #ad7474;
     }
+    ::selection { background: #7e5578; }
+    .dark ::selection { background: #5d7597; }
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/font/montserrat.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Buycat';
+    src: url('../assets/font/buycat.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Sakurata';
+    src: url('../assets/font/sakurata.ttf') format('truetype');
 }

@@ -1,36 +1,17 @@
 ---
+import CardTestimonial from "@/components/CardTestimonial.astro";
+
 
 ---
 
 <section class="h-96 pt-20" id="testimonials">
     <div class="text-center mb-8">
         <h2 class="text-2xl font-bold">Testimonios</h2>
-        <i class="border-b-2 border-blue-400 h-2 w-16 inline-block"></i>
+        <i class="border-b-2 border-pink-400 dark:border-blue-400 h-2 w-16 inline-block"></i>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="relative">
-            <div
-                class="bg-white/15 backdrop-blur-2xl inset-0 bottom-5 absolute rounded-lg -left-3 -top-3 right-4"
-            >
-            </div>
-            <div
-                class="bg-gray-800/20 backdrop-blur-2xl p-6 rounded-lg space-y-4"
-            >
-                <p class="text-lg font-light italic">
-                    "lorem impusi nas asyftba fafsa fab safasf
-                    adsjabsdyscdasdasdbashdbacshdbashdabsdascbdaskj
-                    dbasdkasdbaskdbcaskdabsdckabsdkacbdkjasbcasdba."
-                </p>
-                <div class="flex items-center space-x-4">
-                    <div class="w-12 h-12 bg-blue-500 rounded-full"></div>
-                    <div>
-                        <p class="font-semibold">Name</p>
-                        <a href="#" class="text-blue-400">link_social</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <CardTestimonial />
         <div class="relative">
             <div
                 class="bg-pink-200/20 backdrop-blur-2xl inset-0 bottom-5 absolute rounded-lg -left-3 -top-3 right-4"
@@ -39,16 +20,18 @@
             <div
                 class="bg-pink-400/20 backdrop-blur-2xl p-6 rounded-lg space-y-4"
             >
-                <p class="text-lg font-light italic">
-                    "lorem impusi nas asyftba fafsa fab safasf
-                    adsjabsdyscdasdasdbashdbacshdbashdabsdascbdaskj
-                    dbasdkasdbaskdbcaskdabsdckabsdkacbdkjasbcasdba."
+                <p class="text-base font-light italic">
+                    "Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Tempore officiis totam rerum! Voluptas odit et
+                    exercitationem fuga perspiciatis? Nulla quis rem totam ea
+                    impedit laudantium magnam alias accusamus laborum
+                    blanditiis!"
                 </p>
                 <div class="flex items-center space-x-4">
-                    <div class="w-12 h-12 bg-blue-500 rounded-full"></div>
+                    <div class="w-12 h-12 bg-gray-500 rounded-full"></div>
                     <div>
                         <p class="font-semibold">Name</p>
-                        <a href="#" class="text-blue-400">link_social</a>
+                        <a href="#" class="text-gray-400">link_social</a>
                     </div>
                 </div>
             </div>
