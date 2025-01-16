@@ -1,0 +1,20 @@
+---
+import IconArrowUp from "@/icons/IconArrowUp.astro";
+---
+
+<button
+    id="button-top"
+    class="fixed bottom-4 right-4 bg-cyan-500 text-white rounded-full p-3 transition-transform transform duration-700 hover:scale-105 sm:bottom-8 sm:right-8"
+    >
+        <IconArrowUp />
+    </button
+>
+
+<script>
+    document.getElementById("button-top")?.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    });
+</script>

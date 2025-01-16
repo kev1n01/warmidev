@@ -1,7 +1,8 @@
 ---
-import moon from "@assets/icons/moon.svg";
-import sun from "@assets/icons/sun.svg";
+import IconMoon from "@/icons/IconMoon.astro";
+import IconSun from "@/icons/IconSun.astro";
 ---
+
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const themeSwitcher = document.getElementById("themeSwitcher");
@@ -44,9 +45,9 @@ import sun from "@assets/icons/sun.svg";
 </script>
 <button class="cursor-pointer" id="themeSwitcher">
     <p class="hidden dark:block">
-        <img src={sun.src} alt="sun icon" />
+        <IconMoon />
     </p>
     <p class="block dark:hidden">
-        <img src={moon.src} alt="moon icon" class="text-white" />
+        <IconSun />
     </p>
 </button>

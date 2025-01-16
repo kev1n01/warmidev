@@ -1,97 +1,84 @@
 ---
 import ThemeToogle from "@/components/ThemeToogle.astro";
-import translateIcon from "@assets/icons/translate_icon.svg";
-import menu from "@assets/icons/menu.svg";
-import x from "@assets/icons/x.svg";
+import IconTranslate from "@/icons/IconTranslate.astro";
+import IconMenu from "@/icons/IconMenu.astro";
+import IconX from "@/icons/IconX.astro";
 ---
 
 <header
-    class="w-full flex justify-between items-center p-3 px-10 rounded-xl border border-white/10 shadow-inner shadow-white/50 bg-black/25 backdrop-blur-3xl sticky top-3 z-10"
-    id="header"
+    class="sticky top-3 z-10 w-full rounded-xl border border-white/10 bg-black/25 backdrop-blur-3xl shadow-inner shadow-white/50"
 >
-    <h1 class="font-bold text-xl sm:text-2xl font-buycat">
-        {"WARMI * DEV"}
-    </h1>
-
-    <!-- Desktop Navigation -->
-    <nav
-        class="gap-5 text-gray-300 font-semibold sm:flex hidden"
-        id="desktop-nav"
-    >
-        <!-- <a href="#hero" class="hover:text-white transition-colors">Nosotros</a> -->
-        <a href="#goals" class="hover:text-white transition-colors"
-            >Objetivos</a
+    <div class="flex items-center justify-between p-3 px-4 sm:px-6 lg:px-10">
+        <h1
+            class="font-buycat text-lg sm:text-xl lg:text-2xl font-bold flex gap-1 items-center content-center justify-center text-center place-content-center"
         >
-        <a href="#sponsors" class="hover:text-white transition-colors"
-            >Sponsors</a
-        >
-    </nav>
-
-    <!-- Right side controls -->
-    <div class="flex gap-3 items-center">
-        <!-- <a
-            href="/temas"
-            class="rounded-full from-indigo-400 via-pink-500 to-purple-500 bg-gradient-to-r p-[2px] dark:from-blue-400 dark:via-slate-500 dark:to-sky-400"
-            id="comenzar-btn"
-        >
-            <span
-                class="block text-gray-800 px-4 py-1 font-semibold rounded-full bg-white/40 hover:bg-transparent hover:text-white transition"
-            >
-                Comenzar
+            <img src="/src/assets/logo.png" alt="Logo" class="w-7 h-7" />
+            <span>
+                {"ARMI"}
             </span>
-        </a> -->
-        <div
-            class="cursor-pointer flex items-center gap-1 px-2 py-1 hover:bg-white/10 rounded-full transition-colors content-center text-sm"
-        >
-            <img src={translateIcon.src} alt="translate icon" class="w-4" />
-            ES
-        </div>
-        <ThemeToogle />
+        </h1>
 
-        <!-- Mobile Menu Button -->
-        <button
-            class="sm:hidden flex p-2 hover:bg-white/10 rounded-full transition-colors"
-            id="menu-toggle"
-            aria-label="Toggle menu"
+        <!-- Desktop Navigation -->
+        <nav
+            class="hidden sm:flex gap-5 text-gray-300 font-semibold text-sm sm:text-base"
+            id="desktop-nav"
         >
-            <img src={menu.src} alt="Menu" class="w-6 h-6" id="menu-icon" />
-            <img
-                src={x.src}
-                alt="Close menu"
-                class="w-6 h-6 hidden"
-                id="close-icon"
-            />
-        </button>
+            <a href="#about" class="hover:text-white transition-colors"
+                >Nosotros</a
+            >
+            <a href="#sponsors" class="hover:text-white transition-colors"
+                >Sponsors</a
+            >
+        </nav>
+
+        <!-- Right side controls -->
+        <div class="flex items-center gap-2 sm:gap-3">
+            <!-- Language Selector -->
+            <div
+                class="cursor-pointer flex items-center gap-1 px-2 py-1 hover:bg-white/10 rounded-full transition-colors text-xs sm:text-sm"
+            >
+                <IconTranslate />
+                ES
+            </div>
+            <ThemeToogle />
+
+            <!-- Mobile Menu Button -->
+            <button
+                class="sm:hidden flex p-1.5 sm:p-2 hover:bg-white/10 rounded-full transition-colors"
+                id="menu-toggle"
+                aria-label="Toggle menu"
+            >
+                <IconMenu className="w-5 h-5 sm:w-6 sm:h-6" idName="menu-icon" />
+                <IconX className="w-5 h-5 sm:w-6 sm:h-6 hidden" idName="close-icon" />
+            </button>
+        </div>
     </div>
 
     <!-- Mobile Menu Dropdown -->
     <div
-        class="absolute top-full left-0 right-0 mt-3 py-4 px-2 bg-black/80 backdrop-blur-3xl shadow-inner shadow-white/50  rounded-xl border border-white/10 sm:hidden hidden"
+        class="absolute top-full left-0 right-0 mt-1 hidden sm:hidden md:hidden"
         id="mobile-menu"
     >
-        <nav class="flex flex-col gap-4 text-gray-300 font-semibold">
-            <!-- <a
-                href="#hero"
-                class="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg"
-            >
-                Nosotros
-            </a> -->
-            <a
-                href="#goals"
-                class="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg"
-            >
-                Objetivos
-            </a>
-            <a
-                href="#sponsors"
-                class="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg"
-            >
-                Sponsors
-            </a>
-        </nav>
+        <div
+            class="mx-4 rounded-xl border border-white/10 bg-black/80 backdrop-blur-3xl shadow-inner shadow-white/50"
+        >
+            <nav class="flex flex-col gap-2 p-4 text-gray-300 font-semibold">
+                <a
+                    href="#goals"
+                    class="p-2 hover:bg-white/10 hover:text-white rounded-lg transition-colors"
+                >
+                    Objetivos
+                </a>
+                <a
+                    href="#sponsors"
+                    class="p-2 hover:bg-white/10 hover:text-white rounded-lg transition-colors"
+                >
+                    Sponsors
+                </a>
+            </nav>
+        </div>
     </div>
 </header>
-
 <script>
     // Manejo del scroll
     const header = document.querySelector("#header");

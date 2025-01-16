@@ -1,40 +1,30 @@
 ---
 import CardTestimonial from "@/components/CardTestimonial.astro";
-
-
 ---
 
-<section class="h-96 pt-20" id="testimonials">
+<section class="h-auto pt-10 sm:pt-20" id="testimonials">
     <div class="text-center mb-8">
         <h2 class="text-2xl font-bold">Testimonios</h2>
-        <i class="border-b-2 border-pink-400 dark:border-blue-400 h-2 w-16 inline-block"></i>
+        <i
+            class="border-b-2 border-pink-400 dark:border-blue-400 h-2 w-16 inline-block"
+        ></i>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <CardTestimonial />
-        <div class="relative">
-            <div
-                class="bg-pink-200/20 backdrop-blur-2xl inset-0 bottom-5 absolute rounded-lg -left-3 -top-3 right-4"
-            >
-            </div>
-            <div
-                class="bg-pink-400/20 backdrop-blur-2xl p-6 rounded-lg space-y-4"
-            >
-                <p class="text-base font-light italic">
-                    "Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Tempore officiis totam rerum! Voluptas odit et
-                    exercitationem fuga perspiciatis? Nulla quis rem totam ea
-                    impedit laudantium magnam alias accusamus laborum
-                    blanditiis!"
-                </p>
-                <div class="flex items-center space-x-4">
-                    <div class="w-12 h-12 bg-gray-500 rounded-full"></div>
-                    <div>
-                        <p class="font-semibold">Name</p>
-                        <a href="#" class="text-gray-400">link_social</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 sm:gap-8 gap-4">
+        <CardTestimonial
+            bg="bg-pink-200/20"
+            content="Este es un testimonio de ejemplo Este es un testimonio de ejemplo Este es un testimonio de ejemplo."
+            picture="https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8"
+            name="Maria Paz"
+            link_social="https://example.com"
+        />
+
+        <CardTestimonial
+            bg="bg-pink-200/20"
+            content="Este es un testimonio de ejemplo Este es un testimonio de ejemplo Este es un testimonio de ejemplo."
+            picture="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/e9b68ea9-5883-4334-82f3-9504663a0a86/3f6e6fc1-c870-41d6-9f45-c6c2b426b1ed.png"
+            name="Juana Pérez"
+            link_social="https://example.com"
+        />
     </div>
 </section>

@@ -1,6 +1,7 @@
 ---
 import Footer from "@/partials/Footer.astro";
 import Header from "@/partials/Header.astro";
+import ButtonTop from "@/components/ButtonTop.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -29,11 +30,12 @@ const { title }: Props = Astro.props;
 		>
 		</div>
 
-		<div class="relative flex flex-col max-w-5xl mx-auto min-h-screen">
+		<div class="relative flex flex-col min-h-screen mx-auto sm:mx-20 md:mx-30 lg:mx-40 xl:mx-52 2xl:mx-60">
 			<Header />
-			<main class="py-4 space-y-3 flex-grow">
+			<main class="flex-grow">
 				<slot />
 			</main>
+			<ButtonTop />
 			<Footer />
 		</div>
 		<script>
@@ -57,6 +59,7 @@ const { title }: Props = Astro.props;
 		font-family: system-ui, sans-serif;
 		scroll-behavior: smooth;
 		height: 100dvh;
+		width: 100%;
 		margin: 0;
 		padding: 0;
 	}
