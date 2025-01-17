@@ -2,6 +2,7 @@
 import TooltipCursor from "@/components/TooltipCursor.astro";
 import IconGithub from "@/icons/IconGithub.astro";
 import IconTiktok from "@/icons/IconTiktok.astro";
+import Logo from "@assets/logo.png";
 ---
 
 <footer class="w-full border-t border-white/10">
@@ -13,7 +14,7 @@ import IconTiktok from "@/icons/IconTiktok.astro";
                 class="font-buycat text-lg sm:text-xl lg:text-2xl font-bold flex items-center content-center justify-center"
             >
                 <img
-                    src="/src/assets/logo.png"
+                    src={Logo.src}
                     alt="Logo"
                     class="w-8 h-8 pb-[6px] object-contain"
                 />
