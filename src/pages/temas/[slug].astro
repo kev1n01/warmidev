@@ -9,14 +9,12 @@ changeLanguage("es");
 
 export async function getStaticPaths() {
     const semanas = await getCollection("semanas");
-    return semanas.flatMap((semana) =>
-        semana.data.temas.map((tema) => ({
-            params: { slug: tema.slug },
-            props: {
-                tema,
-            },
-        })),
-    );
+    return semanas.flatMap((semana) => semana.data.temas.map((tema) => ({
+        params: { slug: tema.slug },
+        props: {
+            tema,
+        },
+    })));
 }
 const { tema } = Astro.props;
 ---

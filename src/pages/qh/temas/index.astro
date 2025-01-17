@@ -12,7 +12,15 @@ const semanasOrdenadas = semanas.sort((a, b) => a.data.numero - b.data.numero);
 ---
 
 <Layout>
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 py-5 sm:py-16">
+    <div class="flex justify-end w-full items-center pt-10">
+        <div
+            class="text-center bg-violet-500/70 rounded-lg p-2 w-full sm:w-[66.5%]"
+        >
+            <p class="text-sm sm:text-lg text-white font-semibold mb-2 min-h-5" id="title_week">
+            </p>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 py-2 sm:pb-16">
         <div
             class="h-[11rem] sm:h-[30rem] border border-white/10 bg-white/20 backdrop-blur-2xl col-span-1 rounded-lg w-full"
         >
@@ -47,13 +55,14 @@ const semanasOrdenadas = semanas.sort((a, b) => a.data.numero - b.data.numero);
                         }
                     </select>
                 </div>
-                <AnimateContourn 
-                    content="Crecimiento de mujeres en roles tech en los últimos 5 años" />
+                <AnimateContourn
+                    content="Crecimiento de mujeres en roles tech en los últimos 5 años"
+                />
             </div>
         </div>
         <div
             id="scrollItem"
-            class="col-span-2 rounded-lg sm:px-5 overflow-y-scroll h-[30rem] sm:h-[50rem]"
+            class="col-span-2 rounded-lg overflow-y-scroll h-[30rem] sm:h-[30rem]"
         >
             <div class="space-y-2">
                 {
@@ -91,11 +100,20 @@ const semanasOrdenadas = semanas.sort((a, b) => a.data.numero - b.data.numero);
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-        const selector = document.getElementById("semanaSelector");
+        const selector = document.getElementById(
+            "semanaSelector",
+        ) as HTMLSelectElement;
+        const title_week = document.getElementById(
+            "title_week",
+        ) as HTMLSelectElement;
+        selector.value = "1";
+        title_week.innerText = "Semana " + selector.value;
+        filtrarPorSemana(selector.value);
 
         selector?.addEventListener("change", (e) => {
             const selectedValue = (e.target as HTMLSelectElement).value;
             filtrarPorSemana(selectedValue);
+            title_week.innerText = "Semana " + selectedValue;
         });
     });
 </script>
