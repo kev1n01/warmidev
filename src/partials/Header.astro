@@ -1,6 +1,6 @@
 ---
+import SelectLang from "@/components/SelectLang.astro";
 import ThemeToogle from "@/components/ThemeToogle.astro";
-import IconTranslate from "@/icons/IconTranslate.astro";
 import IconMenu from "@/icons/IconMenu.astro";
 import IconX from "@/icons/IconX.astro";
 ---
@@ -9,18 +9,23 @@ import IconX from "@/icons/IconX.astro";
     class="sticky top-3 z-10 w-full rounded-xl border border-white/10 bg-black/25 backdrop-blur-3xl shadow-inner shadow-white/50"
 >
     <div class="flex items-center justify-between p-3 px-4 sm:px-6 lg:px-10">
-        <h1
-            class="font-buycat text-lg sm:text-xl lg:text-2xl font-bold flex gap-1 items-center content-center justify-center text-center place-content-center"
-        >
-            <img src="/src/assets/logo.png" alt="Logo" class="w-7 h-7" />
-            <span>
-                {"ARMI"}
-            </span>
-        </h1>
+        <a href="/">
+            <div
+                class="font-buycat text-xl sm:text-3xl font-bold flex items-center justify-center"
+            >
+                <img
+                    src="/src/assets/logo.png"
+                    alt="Logo"
+                    class="h-7 w-7 sm:w-8 sm:h-8 pb-1 sm:pb-[6px] object-contain"
+                />
+
+                <div class="flex items-center">ARMI</div>
+            </div>
+        </a>
 
         <!-- Desktop Navigation -->
         <nav
-            class="hidden sm:flex gap-5 text-gray-300 font-semibold text-sm sm:text-base"
+            class="hidden sm:hidden md:flex gap-5 text-gray-300 font-semibold text-sm sm:text-base"
             id="desktop-nav"
         >
             <a href="#about" class="hover:text-white transition-colors"
@@ -34,29 +39,32 @@ import IconX from "@/icons/IconX.astro";
         <!-- Right side controls -->
         <div class="flex items-center gap-2 sm:gap-3">
             <!-- Language Selector -->
-            <div
-                class="cursor-pointer flex items-center gap-1 px-2 py-1 hover:bg-white/10 rounded-full transition-colors text-xs sm:text-sm"
-            >
-                <IconTranslate />
-                ES
-            </div>
+            <SelectLang />
+
             <ThemeToogle />
 
             <!-- Mobile Menu Button -->
             <button
-                class="sm:hidden flex p-1.5 sm:p-2 hover:bg-white/10 rounded-full transition-colors"
+                class="sm:flex md:hidden flex p-1.5 sm:p-2 bg-white/10 rounded-full transition-colors"
                 id="menu-toggle"
+                title="Cambiar de tema"
                 aria-label="Toggle menu"
             >
-                <IconMenu className="w-5 h-5 sm:w-6 sm:h-6" idName="menu-icon" />
-                <IconX className="w-5 h-5 sm:w-6 sm:h-6 hidden" idName="close-icon" />
+                <IconMenu
+                    className="w-5 h-5 sm:w-6 sm:h-6"
+                    idName="menu-icon"
+                />
+                <IconX
+                    className="w-5 h-5 sm:w-6 sm:h-6 hidden"
+                    idName="close-icon"
+                />
             </button>
         </div>
     </div>
 
     <!-- Mobile Menu Dropdown -->
     <div
-        class="absolute top-full left-0 right-0 mt-1 hidden sm:hidden md:hidden"
+        class="absolute top-full left-0 right-0 mt-1 hidden sm:hidden md:hidden text-sm sm:text-base"
         id="mobile-menu"
     >
         <div

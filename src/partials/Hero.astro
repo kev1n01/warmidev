@@ -1,8 +1,9 @@
 ---
 import IconArrowUp from "@/icons/IconArrowUp.astro";
+import { t } from "i18next";
 ---
 
-<section class="pt-10 px-2 sm:px-40" id="hero">
+<section class="pt-10 px-2 sm:px-5 md:px-10 xl:px-20 2xl:px-40" id="hero">
     <div
         class="flex flex-col items-center justify-between content-center gap-8 sm:gap-12 lg:gap-16"
     >
@@ -48,12 +49,12 @@ import IconArrowUp from "@/icons/IconArrowUp.astro";
         </div> -->
 
         <div
-            class="h-auto w-full relative flex flex-col justify-center items-center"
+            class="h-auto w-full relative flex flex-col justify-center items-center space-y-12"
         >
             <img
                 src="/src/assets/warmiuwu.png"
                 alt="WarmiUwu"
-                class="w-72 h-full sm:w-full md:w-full lg:w-full xl:w-full 2xl:w-full inset-0 min-h-40 sm:min-h-72"
+                class="min-h-40 sm:min-h-72"
                 loading="lazy"
             />
             <a
@@ -68,7 +69,7 @@ import IconArrowUp from "@/icons/IconArrowUp.astro";
                 <div
                     class="text-black/80 relative px-2 py-1 sm:px-4 sm:py-2 font-semibold rounded-full bg-white  transition text-sm sm:text-base flex gap-1 items-center"
                 >
-                    Comenzar
+                    {t("home.button")}
                     <IconArrowUp className="rotate-90 w-5 h-5" />
                 </div>
             </a>

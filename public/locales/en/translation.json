@@ -1,0 +1,9 @@
+{
+    "site": {
+      "title": "Warmi Dev | Bootcamp",
+        "description": "Warmi dev is a programming Bootcamp for developers of all ages. In Warmi dev we will learn to program from scratch."
+    },
+    "home": {
+      "button": "¡Start!"
+    }
+  }
