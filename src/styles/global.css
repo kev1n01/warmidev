@@ -20,6 +20,18 @@
     }
     ::selection { background: #7e5578; }
     .dark ::selection { background: #5d7597; }
+    #scrollItem::-webkit-scrollbar {
+        width: 5px;
+    }    
+    .dark #scrollItem::-webkit-scrollbar-thumb {
+        background-color: #838383;
+        border-radius: 10px;
+    }
+    
+    #scrollItem::-webkit-scrollbar-thumb {
+        background-color: #ffffffbd;
+        border-radius: 10px
+    }
 }
 
 @font-face {

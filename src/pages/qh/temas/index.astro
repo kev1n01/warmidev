@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 import ItemTheme from "@/components/ItemTheme.astro";
 import AnimateContourn from "@/components/AnimateContourn.astro";
 
-changeLanguage("es");
+changeLanguage("qh");
 
 const semanas = await getCollection("semanas");
 const semanasOrdenadas = semanas.sort((a, b) => a.data.numero - b.data.numero);

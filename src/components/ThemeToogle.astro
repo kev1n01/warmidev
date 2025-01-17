@@ -1,7 +1,9 @@
 ---
-import moon from "@assets/icons/moon.svg";
-import sun from "@assets/icons/sun.svg";
+import IconMoon from "@/icons/IconMoon.astro";
+import IconSun from "@/icons/IconSun.astro";
+import TooltipCursor from "./TooltipCursor.astro";
 ---
+
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const themeSwitcher = document.getElementById("themeSwitcher");
@@ -42,11 +44,16 @@ import sun from "@assets/icons/sun.svg";
         themeCheck();
     });
 </script>
-<button class="cursor-pointer" id="themeSwitcher">
-    <p class="hidden dark:block">
-        <img src={sun.src} alt="sun icon" />
+<button
+    class="cursor-pointer bg-white/10 rounded-full transition-colors p-1.5"
+    id="themeSwitcher"
+>
+    <p class="hidden dark:block relative group">
+        <IconMoon className="w-5 h-5 sm:w-6 sm:h-6" />
+        <TooltipCursor label="Tema oscuro" position="top-[36px] left-1/2"/>
     </p>
-    <p class="block dark:hidden">
-        <img src={moon.src} alt="moon icon" class="text-white" />
+    <p class="block dark:hidden relative group">
+        <IconSun className="w-5 h-5 sm:w-6 sm:h-6" />
+        <TooltipCursor label="Tema claro" position="top-[36px] left-1/2" />
     </p>
 </button>

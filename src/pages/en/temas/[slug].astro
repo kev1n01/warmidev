@@ -3,7 +3,7 @@ import { changeLanguage } from "i18next";
 import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
-changeLanguage("es");
+changeLanguage("en");
 
 export async function getStaticPaths() {
     const semanas = await getCollection("semanas");

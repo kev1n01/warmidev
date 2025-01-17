@@ -1,24 +1,27 @@
 ---
-
+const { bg, content, picture, name, link_social } = Astro.props;
 ---
 
 <div class="relative">
     <div
-        class="bg-white/15 backdrop-blur-2xl inset-0 bottom-5 absolute rounded-lg -left-3 -top-3 right-4"
+        class="bg-gray-800/20 backdrop-blur-2xl inset-0 bottom-3 absolute rounded-lg -left-3 -top-3 right-3"
     >
     </div>
-    <div class="bg-gray-800/20 backdrop-blur-2xl p-6 rounded-lg space-y-4">
-        <p class="text-base font-light italic">
-            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore
-            officiis totam rerum! Voluptas odit et exercitationem fuga
-            perspiciatis? Nulla quis rem totam ea impedit laudantium magnam
-            alias accusamus laborum blanditiis!"
+    <div
+        class={`${bg} backdrop-blur-2xl p-6 rounded-lg space-y-4 text-sm sm:text-base`}
+    >
+        <p class="font-light italic">
+            {content}
         </p>
         <div class="flex items-center space-x-4">
-            <div class="w-12 h-12 bg-gray-500 rounded-full"></div>
+            <img
+                src={picture}
+                alt="User Picture"
+                class="w-12 h-12 object-cover rounded-full"
+            />
             <div>
-                <p class="font-semibold">Name</p>
-                <a href="#" class="text-gray-400">link_social</a>
+                <p class="font-semibold">{name}</p>
+                <a href={link_social} class="text-cyan-200">{link_social}</a>
             </div>
         </div>
     </div>

@@ -1,0 +1,10 @@
+---
+const { label, position } = Astro.props;
+---
+
+<span
+    class="absolute transform -translate-x-1/2 px-2 py-1 text-[10px] text-white dark:text-gray-900 bg-gray-800 dark:bg-white rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap tracking-wider"
+    class:list={position}
+>
+    {label}
+</span>

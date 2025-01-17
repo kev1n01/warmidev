@@ -1,0 +1,18 @@
+---
+const { content } = Astro.props;
+---
+
+<div
+    class="rounded-lg relative p-[6px] group overflow-hidden"
+>
+    <div
+        class="absolute inset-0 bg-gradient-to-r animate-border from-white via-[#EE7B79] to-cyan-300 dark:from-blue-400 dark:via-slate-500 dark:to-sky-400"
+    >
+    </div>
+
+    <div
+        class="text-black/80 dark:text-white relative px-2 py-1 sm:px-4 sm:py-2 font-semibold rounded-lg text-sm sm:text-lg flex gap-1 items-center bg-gray-200 dark:bg-slate-700 h-[65px] sm:h-60"
+    >
+        {content}
+    </div>
+</div>

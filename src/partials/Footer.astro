@@ -1,25 +1,62 @@
 ---
-import github from "@assets/icons/github.svg";
-import tiktok from "@assets/icons/tiktok.svg";
-
+import TooltipCursor from "@/components/TooltipCursor.astro";
+import IconGithub from "@/icons/IconGithub.astro";
+import IconTiktok from "@/icons/IconTiktok.astro";
 ---
 
-<footer
-    class="w-full flex justify-between items-center p-5 px-20 border-t border-white/10"
->
-    <h1 class="font-bold text-xl sm:text-2xl font-buycat">
-        {"WARMI * DEV"}
-    </h1>
-    <!-- <h1 class="font-bold text-2xl font-saku hidden dark:block">He*JS</h1> -->
-    <div class="flex gap-3">
-        <a  target="_blank" href="https://github.com/kev1n01">
-            <img src={github.src} alt="github" class="w-6 h-6" id="github-icon" />
+<footer class="w-full border-t border-white/10">
+    <div
+        class="flex items-center justify-between p-4 sm:p-5 px-4 sm:px-6 lg:px-10"
+    >
+        <a href="/">
+            <div
+                class="font-buycat text-lg sm:text-xl lg:text-2xl font-bold flex items-center content-center justify-center"
+            >
+                <img
+                    src="/src/assets/logo.png"
+                    alt="Logo"
+                    class="w-8 h-8 pb-[6px] object-contain"
+                />
+                <div class="flex items-center">ARMI</div>
+            </div>
         </a>
-        <a  target="_blank" href="https://github.com/Transformacion-Digital-UDH">
-            <img src={github.src} alt="github" class="w-6 h-6" id="github-icon" />
-        </a>
-        <a  target="_blank" href="https://www.tiktok.com/@transformaciondigitaludh">
-            <img src={tiktok.src} alt="Tiktok" class="w-6 h-6" id="tiktok-icon" />
-        </a>
+
+        <div class="flex gap-2 sm:gap-3">
+            <a
+                target="_blank"
+                href="https://github.com/kev1n01"
+                class="hover:text-cyan-300 transition-opacity relative group"
+            >
+                <div class="relative group">
+                    <IconGithub className="w-5 h-5 sm:w-6 sm:h-6" />
+                    <TooltipCursor
+                        label="Github Kevar"
+                        position="bottom-[36px] left-1/2"
+                    />
+                </div>
+            </a>
+            <a
+                target="_blank"
+                href="https://github.com/Transformacion-Digital-UDH"
+                class="hover:text-indigo-500 transition-opacity relative group"
+            >
+                <IconGithub className="w-5 h-5 sm:w-6 sm:h-6" />
+                <TooltipCursor
+                    label="Github LTD"
+                    position="bottom-[36px] left-1/2"
+                />
+            </a>
+            <a
+                target="_blank"
+                href="https://www.tiktok.com/@transformaciondigitaludh"
+                class="hover:hover:text-pink-500 transition-opacity relative group"
+            >
+                <IconTiktok className="w-5 h-5 sm:w-6 sm:h-6" />
+                <TooltipCursor
+                    label="Tiktok LTD"
+                    position="bottom-[36px] left-1/2"
+                />
+            </a>
+        </div>
     </div>
 </footer>
