@@ -3,16 +3,37 @@ import { languageList } from "@/i18n/ui";
 const currentUrl = Astro.url;
 const currentLang = Astro.currentLocale || "es";
 const n_paths = currentUrl.pathname.split("/");
-let isDetailTopic = n_paths.length === 5;
+let isDetailTopic = `/${currentLang}/temas/${n_paths[3]}/` === currentUrl.pathname;
+let isDetailTopicEs = `/temas/${n_paths[2]}/` === currentUrl.pathname;
+console.log(currentUrl.pathname);
+console.log(n_paths.length);
+console.log(n_paths);
+console.log(isDetailTopic);
+console.log(isDetailTopicEs);
 
 const redirectPath = (lang: string) => {
     if (isDetailTopic) {
         return `/${lang}/temas/${n_paths[3]}/`;
     }
-    if (currentUrl.pathname !== `/${currentLang}/temas/`) {
-        return `/${lang}`;
-    } else {
+
+    if (isDetailTopicEs) {
+        return `/${lang}/temas/${n_paths[2]}/`;
+    }
+
+    if (currentUrl.pathname === `/${currentLang}/temas/`) {
         return `/${lang}/temas/`;
+    }
+   
+    if (currentUrl.pathname === `/temas/`) {
+        return `/${lang}/temas/`;
+    }
+
+    if(currentUrl.pathname === `/${currentLang}/`){
+        return `/${lang}/`;
+    }
+
+    if(currentUrl.pathname === `/`){
+        return `/${lang}/`;
     }
 };
 ---
@@ -22,9 +43,24 @@ const redirectPath = (lang: string) => {
     id="select-menu"
 >
     <nav
-        class="flex flex-col gap-1 p-1 text-gray-300 font-semibold text-sm sm:text-base rounded-xl border border-white/10 bg-black/25 w-full backdrop-blur-3xl shadow-inner shadow-white/50 text-center"
+        class="flex flex-col gap-1 p-1 text-gray-300 font-semibold text-sm sm:text-base rounded-xl border border-white/10 bg-black/25 w-full backdrop-blur-3xl shadow-inner shadow-white/50"
         id="b_el"
     >
+        <a
+            class="p-2 hover:bg-black/10 hover:text-white rounded-lg transition-colors cursor-pointer text-sm"
+            href={currentUrl.pathname === `/temas/` ||
+            currentUrl.pathname === `/${currentLang}/temas/`
+                ? `/temas/`
+                : currentUrl.pathname === `/temas/${n_paths[2]}/`
+                  ? `/temas/${n_paths[2]}/`
+                  : currentUrl.pathname ===
+                      `/${currentLang}/temas/${n_paths[3]}/`
+                    ? `/temas/${n_paths[3]}/`
+                    : `/`}
+        >
+            <code class="uppercase font-semibold">PE</code>{" "}
+            Español
+        </a>
         {
             Object.entries(languageList).map(
                 ([lang, label]: [string, string]) => {
