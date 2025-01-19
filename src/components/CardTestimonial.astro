@@ -15,6 +15,7 @@ const { bg, content, picture, name, link_social } = Astro.props;
         </p>
         <div class="flex items-center space-x-4">
             <img
+                loading="lazy"
                 src={picture}
                 alt="User Picture"
                 class="w-12 h-12 object-cover rounded-full"

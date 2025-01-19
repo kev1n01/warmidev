@@ -1,6 +1,9 @@
 ---
 import type { languageList } from "@/i18n/ui";
 import { useTranslations } from "@/i18n/utils";
+import Aboutimg4 from "@/assets/about_img_4.webp";
+import Aboutimg2 from "@/assets/img_about.webp";
+
 const currentLang = Astro.currentLocale || "es";
 
 const translateLabels = useTranslations(
@@ -14,7 +17,7 @@ const translateLabels = useTranslations(
     >
         <!-- mensaje principal mobile -->
         <div
-            class="rounded-lg col-span-2 row-span-2 sm:col-span-2 sm:row-span-8 bg-gradient-to-br from-purple-900 to-fuchsia-900 content-center text-white px-8 font-mont text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-4xl font-medium text-pretty"
+            class="rounded-lg col-span-2 row-span-2 sm:col-span-2 sm:row-span-8 bg-gradient-to-br from-purple-900 to-fuchsia-900 content-center text-white px-8 py-5 font-mont text-lg sm:text-lg md:text-lg lg:text-xl xl:text-xl 2xl:text-4xl font-medium text-pretty"
         >
             "{translateLabels("about.content_1")}"
         </div>
@@ -24,14 +27,17 @@ const translateLabels = useTranslations(
         >
             <div class="w-full h-full relative">
                 <img
-                    src="https://images.pexels.com/photos/3861959/pexels-photo-3861959.jpeg"
+                    loading="lazy"
+                    src={Aboutimg2.src}
                     alt="Mujer liderando proyecto tech"
                     class="w-full h-full object-cover"
                 />
                 <div
                     class="absolute inset-0 items-end flex bg-gradient-to-t from-black/90 to-transparent p-4"
                 >
-                    <p class="text-white text-base sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-xl">
+                    <p
+                        class="text-white text-base sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-xl"
+                    >
                         {translateLabels("about.content_2")}
                     </p>
                 </div>
@@ -42,7 +48,9 @@ const translateLabels = useTranslations(
             class="rounded-lg row-start-5 row-span-1 col-span-2 sm:col-span-2 sm:row-span-4 sm:col-start-4 sm:row-start-1 bg-gradient-to-b from-indigo-600 to-purple-700 flex flex-col items-center justify-center text-white p-2 sm:p-4 space-y-2"
         >
             <span class="text-3xl sm:text-5xl font-bold text-center">30%</span>
-            <p class="text-center text-base sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-xl">
+            <p
+                class="text-center text-base sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-xl"
+            >
                 {translateLabels("about.content_3")}
             </p>
         </div>
@@ -52,7 +60,9 @@ const translateLabels = useTranslations(
         >
             <div class="text-center">
                 <span class="text-2xl">👩‍💻</span>
-                <p class="text-base sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-lg mt-2 bg-pink-400/60 px-1 rounded-md">
+                <p
+                    class="text-base sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-lg mt-2 bg-pink-400/60 px-1 rounded-md"
+                >
                     {translateLabels("about.content_4")}
                 </p>
             </div>
@@ -63,14 +73,17 @@ const translateLabels = useTranslations(
         >
             <div class="w-full h-full relative">
                 <img
-                    src="https://girlswhocode.com/assets/images/craft-prod/images/seo/_1200x630_crop_center-center_82_none/campus2019-6906.jpg?mtime=1588335921"
+                    loading="lazy"
+                    src={Aboutimg4.src}
                     alt="Mujeres colaborando en proyecto"
                     class="w-full h-full object-cover"
                 />
                 <div
                     class="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent flex items-end p-4"
                 >
-                    <p class="text-white text-base sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-xl">
+                    <p
+                        class="text-white text-base sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-xl"
+                    >
                         {translateLabels("about.content_5")}
                     </p>
                 </div>

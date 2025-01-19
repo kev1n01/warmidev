@@ -1,7 +1,7 @@
 ---
-import Ltd from "@assets/ltd_sponsor.png";
-import Paisi from "@assets/paisi_sponsor.png";
-import Udh from "@assets/udh_sponsor.png";
+import Ltd from "@assets/ltd_sponsor.webp";
+import Paisi from "@assets/paisi_sponsor.webp";
+import Udh from "@assets/udh_sponsor.webp";
 import { useTranslations } from "@/i18n/utils";
 import type { languageList } from "@/i18n/ui";
 const currentLang = Astro.currentLocale || "es";
@@ -107,10 +107,11 @@ const translateLabels = useTranslations(
         <div
             class="bg-col-span-1 flex items-center justify-center bg-white/5 p-2 rounded-md h-full grayscale hover:grayscale-0 hover:bg-white/20"
         >
-            <a href="" class="w-full h-full relative">
+            <a href="https://www.tiktok.com/@transformaciondigitaludh" class="w-full h-full relative">
                 <img
+                    loading="lazy"
                     src={Ltd.src}
-                    alt=""
+                    alt="LTD UDH"
                     class="w-full h-full object-contain"
                 />
             </a>
@@ -121,8 +122,9 @@ const translateLabels = useTranslations(
         >
             <a href="https://www.facebook.com/UDHPAISI" class="w-full h-full">
                 <img
+                    loading="lazy"
                     src={Paisi.src}
-                    alt=""
+                    alt="PAISI ingenieria"
                     class="w-full h-full object-contain"
                 />
             </a>
@@ -131,10 +133,11 @@ const translateLabels = useTranslations(
         <div
             class="bg-col-span-1 flex items-center justify-center bg-white/5 p-6 rounded-md h-full grayscale hover:grayscale-0 hover:bg-white/20"
         >
-            <a href="" class="w-full h-full relative">
+            <a href="https://www.facebook.com/udh.universidaddehuanuco" class="w-full h-full relative">
                 <img
+                    loading="lazy"
                     src={Udh.src}
-                    alt=""
+                    alt="UDH"
                     class="w-full h-full object-contain"
                 />
             </a>
