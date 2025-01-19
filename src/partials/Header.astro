@@ -1,16 +1,25 @@
 ---
-// import SelectLang from "@/components/SelectLang.astro";
+import SelectLang from "@/components/SelectLang.astro";
 import ThemeToogle from "@/components/ThemeToogle.astro";
+import TooltipCursor from "@/components/TooltipCursor.astro";
+import { languageList } from "@/i18n/ui";
+import { useTranslations } from "@/i18n/utils";
 import IconMenu from "@/icons/IconMenu.astro";
+import IconTranslate from "@/icons/IconTranslate.astro";
 import IconX from "@/icons/IconX.astro";
 import Logo from "@assets/logo.png";
+import { getRelativeLocaleUrl } from "astro:i18n";
+const currentLang = Astro.currentLocale || "es";
+const translateLabels = useTranslations(
+    currentLang as keyof typeof languageList,
+);
 ---
 
 <header
     class="sticky top-3 z-10 w-full rounded-xl border border-white/10 bg-black/25 backdrop-blur-3xl shadow-inner shadow-white/50"
 >
     <div class="flex items-center justify-between p-3 px-4 sm:px-6 lg:px-10">
-        <a href="/">
+        <a href={getRelativeLocaleUrl(currentLang, "/")}>
             <div
                 class="font-buycat text-xl sm:text-3xl font-bold flex items-center justify-center"
             >
@@ -26,21 +35,52 @@ import Logo from "@assets/logo.png";
 
         <!-- Desktop Navigation -->
         <nav
-            class="hidden sm:hidden md:flex gap-5 text-gray-300 font-semibold text-sm sm:text-base"
+            class="hidden sm:hidden md:flex gap-5 text-white/90 font-semibold text-sm sm:text-base"
             id="desktop-nav"
         >
-            <a href="#about" class="hover:text-white transition-colors"
-                >Nosotros</a
+            <a
+                href={"#" + translateLabels("nav.about.href")}
+                class="hover:text-white transition-colors group relative flex flex-col"
             >
-            <a href="#sponsors" class="hover:text-white transition-colors"
-                >Sponsors</a
+                <span class="relative">{translateLabels("nav.about")}</span>
+                <div
+                    class="absolute bottom-0 left-0 w-full h-0.5 transform translate-y-[-100%] bg-gradient-to-r from-pink-400 to-cyan-400 opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100"
+                >
+                </div>
+            </a>
+            <a
+                href={"#" + translateLabels("nav.sponsors.href")}
+                class="hover:text-white transition-colors group relative"
+                >
+                <span class="relative">{translateLabels("nav.sponsors")}</span>
+                <div
+                    class="absolute bottom-0 left-0 w-full h-0.5 transform translate-y-[-100%] bg-gradient-to-r from-pink-400 to-cyan-400 opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100"
+                ></div></a
             >
         </nav>
 
         <!-- Right side controls -->
         <div class="flex items-center gap-2 sm:gap-3">
             <!-- Language Selector -->
-            <!-- <SelectLang /> -->
+            <button
+                id="select-toggle"
+                class="cursor-pointer flex items-center gap-1 p-2 bg-white/10 rounded-full transition-colors text-xs sm:text-sm relative group"
+            >
+                <IconTranslate className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span class="hidden sm:block">
+                    <span class="font-semibold"
+                        >{
+                            languageList[
+                                currentLang as keyof typeof languageList
+                            ]
+                        }</span
+                    >
+                </span>
+                <TooltipCursor
+                    label={translateLabels("header.btn.translate")}
+                    position="top-[40px] left-1/2"
+                />
+            </button>
 
             <ThemeToogle />
 
@@ -73,21 +113,23 @@ import Logo from "@assets/logo.png";
         >
             <nav class="flex flex-col gap-2 p-4 text-gray-300 font-semibold">
                 <a
-                    href="#goals"
-                    class="p-2 hover:bg-white/10 hover:text-white rounded-lg transition-colors"
+                    href={"#" + translateLabels("nav.about.href")}
+                    class="p-2 hover:bg-white/80 hover:text-white rounded-lg transition-colors"
                 >
-                    Objetivos
+                    {translateLabels("nav.about")}
                 </a>
                 <a
-                    href="#sponsors"
-                    class="p-2 hover:bg-white/10 hover:text-white rounded-lg transition-colors"
+                    href={"#" + translateLabels("nav.sponsors.href")}
+                    class="p-2 hover:bg-white/80 hover:text-white rounded-lg transition-colors"
                 >
-                    Sponsors
+                    {translateLabels("nav.sponsors")}
                 </a>
             </nav>
         </div>
     </div>
 </header>
+<SelectLang />
+
 <script>
     // Manejo del scroll
     const header = document.querySelector("#header");

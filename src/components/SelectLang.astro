@@ -1,87 +1,76 @@
 ---
-import IconTranslate from "@/icons/IconTranslate.astro";
-import i18next from "i18next";
-import { localizePath } from "astro-i18next";
-import localeEmoji from "locale-emoji";
-import ISO6991 from "iso-639-1";
-import TooltipCursor from "./TooltipCursor.astro";
+import { languageList } from "@/i18n/ui";
+const currentUrl = Astro.url;
+const currentLang = Astro.currentLocale || "es";
+const n_paths = currentUrl.pathname.split("/");
+let isDetailTopic = n_paths.length === 5;
+console.log(n_paths)
+console.log(n_paths.length)
+console.log(currentUrl.pathname + "")
+console.log(isDetailTopic)
 
-interface languageMapping {
-    [localeCode: string]: string;
-}
-
-export interface Props extends astroHTML.JSX.SelectHTMLAttributes {
-    showFlag?: boolean;
-    languageMapping?: languageMapping;
-}
-
-const supportedLanguages = i18next.languages;
-const currentLanguage = i18next.language;
-
-const { pathname } = Astro.url;
-
-const { languageMapping, ...attributes } = Astro.props;
+const redirectPath = (lang: string) => {
+    if (isDetailTopic) {
+        return `/${lang}/temas/${n_paths[3]}/`;
+    }
+    if (currentUrl.pathname !== `/${currentLang}/temas/`) {
+        return `/${lang}`;
+    } else {
+        return `/${lang}/temas/`;
+    }
+};
 ---
 
-<button
-    id="select-toggle"
-    class="cursor-pointer flex items-center gap-1 p-2 bg-white/10 rounded-full transition-colors text-xs sm:text-sm relative group"
+<div
+    class="fixed right-[8rem] xl:right-[21rem] xs:right-[8rem] 2xl:right-[23rem] mt-2.5 top-16 z-20 sm:max-w-60 max-w-96 opacity-0 invisible transition-all duration-200"
+    id="select-menu"
 >
-    <IconTranslate className="w-4 h-4 sm:w-5 sm:h-5" />
-    <span class="hidden sm:block">
-        {currentLanguage === "en" ? "English" : "Español"}
-    </span>
-    <TooltipCursor label="Traducir" position="top-[40px] left-1/2"/>
-</button>
-
-<div class="absolute top-full right-10 mt-1 max-w-4xl hidden" id="select-menu">
-    <div
-        class="mx-1 rounded-xl border border-white/10 bg-black/80 backdrop-blur-3xl shadow-inner shadow-white/50"
+    <nav
+        class="flex flex-col gap-1 p-1 text-gray-300 font-semibold text-sm sm:text-base rounded-xl border border-white/10 bg-black/25 w-full backdrop-blur-3xl shadow-inner shadow-white/50 text-center"
+        id="b_el"
     >
-        <nav
-            class="flex flex-col gap-2 p-1 text-gray-300 font-semibold text-sm sm:text-base"
-        >
-            {
-                supportedLanguages.map((supportedLanguage: string) => {
-                    let value = localizePath(pathname, supportedLanguage);
-                    let flag = localeEmoji(supportedLanguage) + " ";
-
-                    let nativeName = "";
-                    let label = "";
-                    if (
-                        languageMapping &&
-                        languageMapping.hasOwnProperty(supportedLanguage)
-                    ) {
-                        nativeName = languageMapping[supportedLanguage];
-                    } else {
-                        nativeName = ISO6991.getNativeName(supportedLanguage);
-                    }
-
-                    if (supportedLanguage === "qh") {
-                        label = localeEmoji("es_PE") + " Quechua";
-                    } else {
-                        label = flag + nativeName;
-                    }
-
+        {
+            Object.entries(languageList).map(
+                ([lang, label]: [string, string]) => {
+                    const path = redirectPath(lang);
                     return (
                         <a
-                            class="p-2 hover:bg-white/10 hover:text-white rounded-lg transition-colors cursor-pointer"
-                            href={value}
+                            class="p-2 hover:bg-black/10 hover:text-white rounded-lg transition-colors cursor-pointer text-sm"
+                            href={path}
                         >
+                            <code class="uppercase font-semibold">{lang}</code>{" "}
                             {label}
                         </a>
                     );
-                })
-            }
-        </nav>
-    </div>
+                },
+            )
+        }
+    </nav>
 </div>
 
 <script>
     const selectToggle = document.querySelector("#select-toggle");
-    const selectMenu = document.querySelector("#select-menu");
+    const selectMenu = document.querySelector("#select-menu") as HTMLElement;
+    const b_el = document.querySelector("#b_el");
+    // Función para actualizar la posición del menú
+    function updateMenuPosition() {
+        if (selectToggle && selectMenu) {
+            const buttonRect = selectToggle.getBoundingClientRect();
+            selectMenu.style.top = `${buttonRect.bottom + 8}px`;
+        }
+        b_el?.classList.add("bg-black/50");
+        b_el?.classList.remove("bg-black/25");
+    }
+
+    // Actualizar posición cuando se abre el menú
     selectToggle?.addEventListener("click", () => {
-        selectMenu?.classList.toggle("hidden");
+        selectMenu?.classList.toggle("opacity-0");
+        selectMenu?.classList.toggle("opacity-100");
+        selectMenu?.classList.toggle("invisible");
+        selectMenu?.classList.toggle("visible");
     });
-    
+
+    // Actualizar posición al hacer scroll o resize
+    window.addEventListener("scroll", updateMenuPosition);
+    window.addEventListener("resize", updateMenuPosition);
 </script>

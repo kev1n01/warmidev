@@ -1,0 +1,158 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import ItemTheme from "@/components/ItemTheme.astro";
+import { useTranslations } from "@/i18n/utils";
+import type { languageList } from "@/i18n/ui";
+
+const currentLang = Astro.currentLocale || "es";
+
+const translateLabels = useTranslations(
+    currentLang as keyof typeof languageList,
+);
+
+const semanas = await getCollection("semanas");
+const semanasOrdenadas = semanas.sort(
+    (a: any, b: any) => a.data.numero - b.data.numero,
+);
+const semanasSimplificadas = semanas
+    .sort((a: any, b: any) => a.data.numero - b.data.numero)
+    .map((semana: any) => ({
+        numero: semana.data.numero,
+        w_motivation: semana.data.w_motivation,
+    }));
+---
+
+<Layout>
+    <div class="flex justify-end w-full items-center pt-10">
+        <div
+            class="text-center bg-violet-500/60 rounded-lg p-2 w-full sm:w-[66.5%]"
+        >
+            <p
+                class="text-sm sm:text-base text-white font-semibold mb-2 min-h-4 uppercase"
+                id="title_week"
+            >
+            </p>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 py-2 sm:pb-16">
+        <div
+            class="h-[11rem] sm:h-[30rem] border border-white/10 bg-white/20 backdrop-blur-2xl col-span-1 rounded-lg w-full"
+        >
+            <div
+                class="flex gap-2 sm:gap-0 flex-col items-center justify-between sm:px-3 sm:py-10 p-2"
+            >
+                <div class="text-center mb-0 sm:mb-2 w-full">
+                    <label
+                        for="semanaSelector"
+                        class="block text-sm font-semibold text-white mb-1 text-center sm:text-lg"
+                    >
+                        {translateLabels("topics.label.select")}
+                    </label>
+                    <select
+                        id="semanaSelector"
+                        class="w-full py-4 px-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-sm dark:bg-cyan-200/30 bg-cyan-200/50 placeholder:text-white font-semibold
+                        text-slate-700 dark:text-white border-white/20"
+                    >
+                        <option
+                            class="text-sm text-slate-700 bg-cyan-200/40 sm:text-base"
+                            value="todas">{translateLabels("topics.select.option")}</option
+                        >
+                        {
+                            semanasOrdenadas.map((semana: any) => (
+                                <option
+                                    class="text-sm sm:text-base text-slate-700 bg-cyan-200/40"
+                                    value={semana.data.numero}
+                                >
+                                    {semana.data.titulo}
+                                </option>
+                            ))
+                        }
+                    </select>
+                </div>
+                <div class="rounded-lg relative p-[6px] group overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r animate-border from-white via-[#EE7B79] to-cyan-300 dark:from-blue-400 dark:via-slate-500 dark:to-sky-400"
+                    >
+                    </div>
+
+                    <div
+                        class="text-black/80 dark:text-white relative px-2 py-1 sm:px-4 sm:py-2 font-semibold rounded-lg text-sm sm:text-lg flex gap-1 items-center bg-gray-200 dark:bg-slate-700 h-[65px] sm:h-60"
+                        id="w-motivation"
+                    >
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+            id="scrollItem"
+            class="col-span-2 rounded-lg overflow-y-scroll h-[30rem] sm:h-[30rem]"
+        >
+            <div class="space-y-2">
+                {
+                    semanasOrdenadas.map((semana: any) => (
+                        <div
+                            class="semana-container space-y-2"
+                            data-semana={semana.data.numero}
+                        >
+                            {semana.data.temas.map((tema: any) => (
+                                <ItemTheme data={tema} />
+                            ))}
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<script define:vars={{ semanasSimplificadas }}>
+    function filtrarPorSemana(semanaSeleccionada) {
+        const contenedores = document.querySelectorAll(".semana-container");
+
+        contenedores.forEach((contenedor) => {
+            const semanaNumero = contenedor.getAttribute("data-semana");
+            if (
+                semanaSeleccionada === "todas" ||
+                semanaNumero === semanaSeleccionada
+            ) {
+                contenedor.style.display = "block";
+            } else {
+                contenedor.style.display = "none";
+            }
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const currentLocale = document.documentElement.lang;
+        let tsemana = "Semana";
+
+        if (currentLocale === "en") {
+            tsemana = "Week";
+        }
+
+        if (currentLocale === "es") {
+            tsemana = "Semana";
+        }
+
+        const selector = document.getElementById("semanaSelector");
+        const title_week = document.getElementById("title_week");
+        const w_motivation = document.getElementById("w-motivation");
+        let week = null
+        selector.value = "1";
+        title_week.innerText = tsemana + " " + selector.value;
+        filtrarPorSemana(selector.value); 
+
+        // set w-motivation text from week to defaul numero 1
+        week = semanasSimplificadas.find((s) => s.numero === 1);
+        w_motivation.innerHTML = week.w_motivation;
+
+        selector?.addEventListener("change", (e) => {
+            const selectedValue = e.target.value;
+            filtrarPorSemana(selectedValue);
+            title_week.innerText = tsemana + " " + selectedValue;
+            week = semanasSimplificadas.find((s) => s.numero === parseInt(selectedValue));
+            w_motivation.innerHTML = week.w_motivation;
+        });
+    });
+</script>

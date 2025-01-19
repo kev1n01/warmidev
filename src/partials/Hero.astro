@@ -1,7 +1,13 @@
 ---
 import IconArrowUp from "@/icons/IconArrowUp.astro";
-import { t } from "i18next";
 import WarmiUwu from "@/assets/warmiuwu.png";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { useTranslations } from "@/i18n/utils";
+import type { languageList } from "@/i18n/ui";
+const currentLang = Astro.currentLocale || "es";
+const translateLabels = useTranslations(
+    currentLang as keyof typeof languageList,
+);
 ---
 
 <section class="pt-10 px-2 sm:px-5 md:px-10 xl:px-20 2xl:px-40" id="hero">
@@ -59,8 +65,8 @@ import WarmiUwu from "@/assets/warmiuwu.png";
                 loading="lazy"
             />
             <a
-                href="/temas"
-                class="rounded-full relative p-[4px] group overflow-hidden hover:shadow-white hover:shadow-[0_0_40px_rgba(255,255,255,1)] shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all"
+                href={getRelativeLocaleUrl(currentLang, "temas")}
+                class="rounded-2xl relative p-[6px] group overflow-hidden hover:shadow-[0_0_100px_10px_rgba(96,165,250,2)] shadow-[0_0_20px_rgba(96,165,250,0.5)] transition-all h-16 w-1/2 sm:h-16 sm:w-1/3"
             >
                 <div
                     class="absolute inset-0 bg-gradient-to-r from-white via-[#EE7B79] to-cyan-300 dark:from-blue-400 dark:via-slate-500 dark:to-sky-400 animate-border"
@@ -68,9 +74,9 @@ import WarmiUwu from "@/assets/warmiuwu.png";
                 </div>
 
                 <div
-                    class="text-black/80 relative px-2 py-1 sm:px-4 sm:py-2 font-semibold rounded-full bg-white  transition text-sm sm:text-base flex gap-1 items-center"
+                    class="text-black/80 relative px-2 py-1 sm:px-4 sm:py-2 font-semibold rounded-2xl bg-white transition text-sm sm:text-base flex gap-1 items-center justify-center h-full w-full text-center"
                 >
-                    {t("home.button")}
+                    {translateLabels("hero.button")}
                     <IconArrowUp className="rotate-90 w-5 h-5" />
                 </div>
             </a>
@@ -82,7 +88,7 @@ import WarmiUwu from "@/assets/warmiuwu.png";
     import { CODE_HTTP } from "@/lib/codeError";
 
     const imageContainer = document.getElementById("image-container");
-    const catImage = document.getElementById("cat-image");
+    const catImage = document.getElementById("cat-image") as HTMLImageElement;
     const loadingSpinner = document.getElementById("loading-spinner");
     const errorMessage = document.getElementById("error-message");
     const retryButton = document.getElementById("retry-button");
@@ -96,7 +102,6 @@ import WarmiUwu from "@/assets/warmiuwu.png";
             if (catImage) {
                 const randomCode =
                     CODE_HTTP[Math.floor(Math.random() * CODE_HTTP.length)];
-                console.log(randomCode);
                 const img = new Image();
                 img.src = `https://http.cat/${randomCode}.jpg`;
 

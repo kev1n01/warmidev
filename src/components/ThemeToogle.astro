@@ -2,6 +2,12 @@
 import IconMoon from "@/icons/IconMoon.astro";
 import IconSun from "@/icons/IconSun.astro";
 import TooltipCursor from "./TooltipCursor.astro";
+import type { languageList } from "@/i18n/ui";
+import { useTranslations } from "@/i18n/utils";
+const currentLang = Astro.currentLocale || "es";
+const translateLabels = useTranslations(
+    currentLang as keyof typeof languageList,
+);
 ---
 
 <script>
@@ -50,10 +56,10 @@ import TooltipCursor from "./TooltipCursor.astro";
 >
     <p class="hidden dark:block relative group">
         <IconMoon className="w-5 h-5 sm:w-6 sm:h-6" />
-        <TooltipCursor label="Tema oscuro" position="top-[36px] left-1/2"/>
+        <TooltipCursor label={translateLabels("header.btn.theme.dark")} position="top-[36px] left-1/2"/>
     </p>
     <p class="block dark:hidden relative group">
         <IconSun className="w-5 h-5 sm:w-6 sm:h-6" />
-        <TooltipCursor label="Tema claro" position="top-[36px] left-1/2" />
+        <TooltipCursor label={translateLabels("header.btn.theme.light")} position="top-[36px] left-1/2" />
     </p>
 </button>

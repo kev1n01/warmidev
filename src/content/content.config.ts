@@ -3,11 +3,13 @@ import { defineCollection, z } from 'astro:content';
 const semanasCollection = defineCollection({
     schema: z.object({
         numero: z.number(),
-        descripcion: z.string(),
+        titulo: z.string(),
+        w_motivation: z.string(),
         temas: z.array(z.object({
             slug: z.string(),
             titulo: z.string(),
             descripcion: z.string(),
+            tips: z.string(),
             tareas: z.array(z.object({
                 titulo: z.string(),
                 descripcion: z.string()

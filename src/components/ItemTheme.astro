@@ -1,13 +1,21 @@
 ---
 import IconArrowUp from "@/icons/IconArrowUp.astro";
 import TooltipCursor from "./TooltipCursor.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import type { languageList } from "@/i18n/ui";
+import { useTranslations } from "@/i18n/utils";
+const currentLang = Astro.currentLocale || "es";
+const translateLabels = useTranslations(
+    currentLang as keyof typeof languageList,
+);
 const { data } = Astro.props;
 ---
 
-<a href={`/temas/${data.slug}`}
+<a
+    href={getRelativeLocaleUrl(currentLang, `/temas/${data.slug}`)}
     class="px-4 py-3 w-full flex justify-between items-center content-center border rounded-lg bg-white/10 border-white/20 hover:bg-white/20 backdrop-blur-lg cursor-pointer relative group"
 >
-    <p class="text-xs sm:text-sm font-bold">{data.titulo}</p>
+    <p class="text-sm sm:text-base font-bold">{data.titulo}</p>
     <IconArrowUp className="rotate-90 w-5 h-5 bottom-1/3" />
-    <TooltipCursor label="Ver detalles" position="bottom-1/4 right-5" />
+    <TooltipCursor label={translateLabels("topics.item.tooltip")} position="bottom-1/4 right-5" />
 </a>
