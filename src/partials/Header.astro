@@ -158,11 +158,12 @@ const translateLabels = useTranslations(
 
     // Ocultar elementos en la página /temas
     document.addEventListener("DOMContentLoaded", () => {
-        if (window.location.pathname.startsWith("/temas")) {
+        let path = window.location.pathname;
+        let n_path = path.split("/").length;
+        if (n_path === 4 || n_path === 5) {
             const nav = document.querySelector("#desktop-nav");
-            const comenzarBtn = document.querySelector("#comenzar-btn");
             if (nav) nav.style.display = "none";
-            comenzarBtn?.classList.add("hidden");
+            menuToggle?.classList.add("hidden");
         }
     });
 

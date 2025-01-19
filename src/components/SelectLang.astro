@@ -4,10 +4,6 @@ const currentUrl = Astro.url;
 const currentLang = Astro.currentLocale || "es";
 const n_paths = currentUrl.pathname.split("/");
 let isDetailTopic = n_paths.length === 5;
-console.log(n_paths)
-console.log(n_paths.length)
-console.log(currentUrl.pathname + "")
-console.log(isDetailTopic)
 
 const redirectPath = (lang: string) => {
     if (isDetailTopic) {
