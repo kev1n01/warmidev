@@ -20,6 +20,7 @@ const semanasSimplificadas = semanas
     .map((semana: any) => ({
         numero: semana.data.numero,
         w_motivation: semana.data.w_motivation,
+        titulo: semana.data.titulo,
     }));
 ---
 
@@ -56,7 +57,8 @@ const semanasSimplificadas = semanas
                     >
                         <option
                             class="text-sm text-slate-700 bg-cyan-200/40 sm:text-base"
-                            value="todas">{translateLabels("topics.select.option")}</option
+                            value="todas"
+                            >{translateLabels("topics.select.option")}</option
                         >
                         {
                             semanasOrdenadas.map((semana: any) => (
@@ -64,7 +66,7 @@ const semanasSimplificadas = semanas
                                     class="text-sm sm:text-base text-slate-700 bg-cyan-200/40"
                                     value={semana.data.numero}
                                 >
-                                    {semana.data.titulo}
+                                    {semana.data.label_select}
                                 </option>
                             ))
                         }
@@ -77,7 +79,7 @@ const semanasSimplificadas = semanas
                     </div>
 
                     <div
-                        class="text-black/80 dark:text-white relative px-2 py-1 sm:px-4 sm:py-2 font-semibold rounded-lg text-sm sm:text-lg flex gap-1 items-center bg-gray-200 dark:bg-slate-700 h-[65px] sm:h-60"
+                        class="text-black/80 dark:text-white relative px-2 py-1 sm:px-4 sm:py-2 font-semibold rounded-lg text-sm sm:text-lg flex gap-1 items-center bg-gray-200 dark:bg-slate-700 h-auto sm:h-60 md:min-w-[18rem] 2xl:min-w-[30rem] w-full"
                         id="w-motivation"
                     >
                     </div>
@@ -95,6 +97,9 @@ const semanasSimplificadas = semanas
                             class="semana-container space-y-2"
                             data-semana={semana.data.numero}
                         >
+                            <span class="semana-titulo hidden text-center font-buycat text-2xl font-semibold">
+                                {semana.data.label_select}
+                            </span>
                             {semana.data.temas.map((tema: any) => (
                                 <ItemTheme data={tema} />
                             ))}
@@ -138,21 +143,41 @@ const semanasSimplificadas = semanas
         const selector = document.getElementById("semanaSelector");
         const title_week = document.getElementById("title_week");
         const w_motivation = document.getElementById("w-motivation");
-        let week = null
+        let week = null;
         selector.value = "1";
-        title_week.innerText = tsemana + " " + selector.value;
-        filtrarPorSemana(selector.value); 
+        filtrarPorSemana(selector.value);
 
         // set w-motivation text from week to defaul numero 1
         week = semanasSimplificadas.find((s) => s.numero === 1);
+        title_week.innerText =
+            tsemana + " " + selector.value + ": " + week.titulo;
         w_motivation.innerHTML = week.w_motivation;
 
         selector?.addEventListener("change", (e) => {
             const selectedValue = e.target.value;
             filtrarPorSemana(selectedValue);
-            title_week.innerText = tsemana + " " + selectedValue;
-            week = semanasSimplificadas.find((s) => s.numero === parseInt(selectedValue));
-            w_motivation.innerHTML = week.w_motivation;
+            const allTitles = document.querySelectorAll(".semana-titulo");
+            allTitles.forEach((title) => {
+                if (selectedValue === "todas") {
+                    title.classList.remove("hidden");
+                    title.classList.add("block");
+                } else {
+                    title.classList.add("hidden");
+                    title.classList.remove("block");
+                }
+            });
+
+            if (selectedValue === "todas") {
+                title_week.innerText = "Todas las semanas";
+                w_motivation.innerHTML = '"Si te desmotivas, solo motivate :D XD." – Acuña';
+            }else{
+                week = semanasSimplificadas.find(
+                    (s) => s.numero === parseInt(selectedValue),
+                );
+                
+                title_week.innerText = tsemana + " " + selectedValue + ": " + week.titulo;
+                w_motivation.innerHTML = week.w_motivation;
+            }
         });
     });
 </script>

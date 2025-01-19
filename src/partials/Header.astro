@@ -161,8 +161,9 @@ const translateLabels = useTranslations(
     // Ocultar elementos en la página /temas
     document.addEventListener("DOMContentLoaded", () => {
         let path = window.location.pathname;
+        console.log(path);
         let n_path = path.split("/").length;
-        if (n_path === 4 || n_path === 5) {
+        if (n_path === 4 || n_path === 5 || path === "/temas/") {
             const nav = document.querySelector("#desktop-nav");
             if (nav) nav.style.display = "none";
             menuToggle?.classList.add("hidden");
