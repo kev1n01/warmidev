@@ -13,7 +13,14 @@ const translateLabels = useTranslations(
 );
 
 export async function getStaticPaths() {
-    const semanas = await getCollection("semanas");
+    const semanas = await getCollection("semanas", ({ id }: any) => {
+        // Si es la ruta por defecto (español)
+        if (!Astro.currentLocale) {
+            return id.startsWith("es/");
+        }
+        // Para otros idiomas
+        return id.startsWith(`${Astro.currentLocale}/`);
+    });
     return semanas.flatMap((semana: any) =>
         semana.data.temas.map((tema: any) => ({
             params: { slug: tema.slug },
@@ -55,7 +62,7 @@ const { tema }: any = Astro.props;
             <!-- tasks -->
             <div
                 id="scrollItem"
-                class="sm:h-[30rem] overflow-y-auto  h-[15rem] border-white/10 backdrop-blur-2xl col-span-2 rounded-lg w-full mb-2 sm:mb-0"
+                class="sm:h-[30rem] overflow-y-auto h-[15rem] border-white/10 backdrop-blur-2xl col-span-2 rounded-lg w-full mb-2 sm:mb-0"
             >
                 {
                     tema.tareas ? (

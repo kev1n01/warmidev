@@ -1,48 +1,19 @@
-# Astro Starter Kit: Basics
+"La mejor manera de predecir el futuro es inventarlo." – Alan Kay
 
-```sh
-npm create astro@latest -- --template basics
-```
+"Los programas que no son buenos para la máquina no son buenos para las personas." – Donald Knuth
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+"Los computadoras son inútiles. Solo pueden darte respuestas." – Pablo Picasso (Aunque no era programador, esta cita resalta la importancia de la creatividad humana en la tecnología).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+"Cualquiera que no esté confundido por los conceptos de la informática no ha entendido nada." – Alan Turing
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+"La programación no es solo escribir código, es resolver problemas." – John Carmack
 
-## 🚀 Project Structure
+"Para hacer buen software, necesitas entender qué es lo que hace realmente a las personas felices." – Steve Jobs
 
-Inside of your Astro project, you'll see the following folders and files:
+"El propósito de la computación es ayudar a las personas a resolver problemas que no podrían resolver sin ellas." – Tim Berners-Lee
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+"Es más fácil cambiar los programas de las computadoras que las costumbres de los humanos." – John von Neumann
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+"Nunca en la historia del mundo ha habido una oportunidad tan grande para aquellos dispuestos a aprender nuevas habilidades." – Bill Gates
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+"El verdadero desafío no es crear algo que funcione, sino crear algo que funcione de una manera que tenga sentido para las personas." – Mark Zuckerberg
