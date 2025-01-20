@@ -82,7 +82,7 @@ const semanasSimplificadas = semanas
                     </div>
 
                     <div
-                        class="text-black/80 dark:text-white relative px-2 py-4 sm:px-4 sm:py-2 font-semibold rounded-lg text-xs sm:text-lg flex gap-1 items-center bg-gray-200 dark:bg-slate-700 h-auto sm:h-60 md:min-w-[18rem] 2xl:min-w-[30rem] w-full"
+                        class="text-black/80 dark:text-white relative px-2 py-4 sm:px-4 sm:py-2 font-semibold rounded-lg text-xs sm:text-base flex gap-1 items-center bg-gray-200 dark:bg-slate-700 h-auto sm:h-60 w-full"
                         id="w-motivation"
                     >
                     </div>
@@ -146,20 +146,28 @@ const semanasSimplificadas = semanas
         const selector = document.getElementById("semanaSelector");
         const title_week = document.getElementById("title_week");
         const w_motivation = document.getElementById("w-motivation");
+        let allTitles = document.querySelectorAll(".semana-titulo");
         let week = null;
-        selector.value = "1";
+        selector.value = "todas";
+        allTitles.forEach((title) => {
+            if (selector.value === "todas") {
+                title.classList.remove("hidden");
+                title.classList.add("block");
+            } else {
+                title.classList.add("hidden");
+                title.classList.remove("block");
+            }
+        });
         filtrarPorSemana(selector.value);
 
         // set w-motivation text from week to defaul numero 1
-        week = semanasSimplificadas.find((s) => s.numero === 1);
-        title_week.innerText =
-            tsemana + " " + selector.value + ": " + week.titulo;
-        w_motivation.innerHTML = week.w_motivation;
+        title_week.innerText = "Every week";
+        w_motivation.innerHTML =
+            '"If you get demotivated, just motivate yourself :D XD." – ChatGPT';
 
         selector?.addEventListener("change", (e) => {
             const selectedValue = e.target.value;
             filtrarPorSemana(selectedValue);
-            const allTitles = document.querySelectorAll(".semana-titulo");
             allTitles.forEach((title) => {
                 if (selectedValue === "todas") {
                     title.classList.remove("hidden");
@@ -172,13 +180,15 @@ const semanasSimplificadas = semanas
 
             if (selectedValue === "todas") {
                 title_week.innerText = "Every week";
-                w_motivation.innerHTML = '"If you get demotivated, just motivate yourself :D XD." – Acuña';
-            }else{
+                w_motivation.innerHTML =
+                    '"If you get demotivated, just motivate yourself :D XD." – Acuña';
+            } else {
                 week = semanasSimplificadas.find(
                     (s) => s.numero === parseInt(selectedValue),
                 );
-                
-                title_week.innerText = tsemana + " " + selectedValue + ": " + week.titulo;
+
+                title_week.innerText =
+                    tsemana + " " + selectedValue + ": " + week.titulo;
                 w_motivation.innerHTML = week.w_motivation;
             }
         });
