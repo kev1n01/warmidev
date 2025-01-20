@@ -24,17 +24,7 @@ const semanasCollection = defineCollection({
     })
 });
 
-// Validar que los archivos estén en las carpetas de idioma correctas
-const VALID_LANGS = ['es', 'en', 'qh'];
 
 export const collections = {
-    semanas: {
-        ...semanasCollection,
-        entrySchema: z.object({
-            id: z.string().refine(
-                (id) => VALID_LANGS.some(lang => id.startsWith(`${lang}/`)),
-                'Las entradas deben estar dentro de una carpeta de idioma válida (es/, en/, qh/)'
-            )
-        })
-    }
+    semanas: semanasCollection
 };
