@@ -8,7 +8,7 @@ export const defaultLang = 'es';
 export const labels = {
     es: {
         "site.title": "Warmi Dev | Bootcamp",
-        "site.description": "Warmi dev es un Bootcamp de programación para desarrolladoras de todas las edades. En Warmi dev aprenderemos a programar desde cero.",
+        "site.description": "Warmi dev es un Bootcamp de programación abierta y dirigido a todas las mujeres de cualquier edad, con interés en adentrarse al mundo del desarrollo de software. En Warmi dev programadores con experiencia comparte su conocimiento y ruta de aprendizaje.",
 
         "hero.button": "¡Comenzar!",
 
@@ -43,7 +43,7 @@ export const labels = {
     },
     en: {
         "site.title": "Warmi Dev | Bootcamp",
-        "site.description": "Warmi dev is a programming Bootcamp for developers of all ages. In Warmi dev we will learn to program from scratch.",
+        "site.description": "Warmi dev is an open programming Bootcamp aimed at all women of any age, with interest in entering the world of software development. At Warmi dev, experienced programmers share their knowledge and learning path.",
 
         "hero.button": "¡Let's start!",
 
@@ -79,7 +79,7 @@ export const labels = {
     },
     qh: {
         "site.title": "Warmi Dev | Bootcamp nisqa",
-        "site.description": "Warmi dev nisqaqa tukuy watayuq warmi paqarichiqkunap programacion bootcamp nisqa. Warmi dev nisqapiqa zeromantapacha programayta yachasun.",
+        "site.description": "Warmi dev huk kichasqa programacion Bootcamp llapa warmikunaman ima edadniyuq kaqkunamanpas, software ruway pachaman yaykuyta munaspa. Warmi dev kaqpi, yachaysapa programaqkuna yachayninkuta chaymanta yachay ñanninkuta qunakunku.",
 
         "hero.button": "¡Qallariy!",
 

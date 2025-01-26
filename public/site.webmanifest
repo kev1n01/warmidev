@@ -1,0 +1,33 @@
+{
+    "name": "WarmiDev",
+    "description": "Warmi dev es un Bootcamp de programación abierta y dirigido a todas las mujeres de cualquier edad, con interés en adentrarse al mundo del desarrollo de software. En Warmi dev programadores con experiencia comparte su conocimiento y ruta de aprendizaje.",
+    "short_name": "WarmiDev",
+    "start_url": ".",
+    "icons": [
+        {
+            "src": "pwa-64x64.png",
+            "sizes": "64x64",
+            "type": "image/png"
+        },
+        {
+            "src": "pwa-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "pwa-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "maskable-icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "theme_color": "#000000",
+    "background_color": "#FFFFFF",
+    "display": "standalone",
+    "orientation": "portrait"
+}
