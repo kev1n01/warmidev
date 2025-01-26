@@ -77,6 +77,13 @@ const translateLabels = useTranslations(
                         }</span
                     >
                 </span>
+                <span class="block sm:hidden">
+                    <span class="font-semibold uppercase"
+                        >{
+                            currentLang || 'es'
+                        }</span
+                    >
+                </span>
                 <TooltipCursor
                     label={translateLabels("header.btn.translate")}
                     position="top-[40px] left-1/2"
