@@ -5,17 +5,30 @@ import IconArrowUp from "@/icons/IconArrowUp.astro";
 <button
     id="button-top"
     title="Subir"
-    class="fixed bottom-16 right-4 bg-white text-cyan-600 font-semibold  stroke-2 rounded-full p-3 sm:bottom-10 sm:right-8 group"
+    class="fixed bottom-16 right-4 bg-white text-cyan-600 font-semibold  stroke-2 rounded-full p-3 sm:bottom-10 sm:right-8 group opacity-0"
     >
         <IconArrowUp  className="rotate-45 group-hover:rotate-0 group-hover:transition-transform transform duration-500" />
     </button
 >
 
 <script>
-    document.getElementById("button-top")?.addEventListener("click", () => {
+    let buttonTop = document.getElementById("button-top");
+    buttonTop?.addEventListener("click", () => {
         window.scrollTo({
             top: 0,
             behavior: "smooth",
         });
     });
+
+    const handleScroll = () => {
+        if (window.scrollY > 0) {
+            buttonTop?.classList.remove("opacity-0");
+            buttonTop?.classList.add("opacity-100");
+        }
+        if (window.scrollY === 0) {
+            buttonTop?.classList.remove("opacity-100");
+            buttonTop?.classList.add("opacity-0");
+        }
+    }
+    window.addEventListener("scroll", handleScroll);
 </script>
