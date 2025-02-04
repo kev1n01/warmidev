@@ -21,11 +21,11 @@ export const labels = {
         "header.btn.theme.dark": "Modo oscuro",
         "header.btn.theme.light": "Modo claro",
 
-        "about.content_1": "Rompiendo estereotipos, creando código. Porque el talento en tecnología no tiene género. Tu mente brillante es justo lo que la industria tech necesita para innovar y transformar el futuro digital.",
-        "about.content_2": "Liderando el cambio en la industria tech",
+        "about.content_1": "Somos un bootcamp de programación abierto y dirigido a todas las mujeres de cualquier edad, con interés en adentrarse al mundo de la programación.",
+        "about.content_2": "Lidera el cambio en la industria tech",
         "about.content_3": "Crecimiento de mujeres en roles tech en los últimos 5 años",
         "about.content_4": "Codea ahora",
-        "about.content_5": "Colaboración e innovación en cada proyecto",
+        "about.content_5": "Porque el talento en tecnología no tiene género",
 
         "sponsors.title": "Presentado por",
 
@@ -56,11 +56,11 @@ export const labels = {
         "header.btn.theme.dark": "Mode dark",
         "header.btn.theme.light": "Mode light",
 
-        "about.content_1": "Breaking stereotypes, creating code. Because tech talent has no gender. Your brilliant mind is just what the tech industry needs to innovate and transform the digital future.",
-        "about.content_2": "Leading change in the tech industry",
+        "about.content_1": "We are an open programming bootcamp aimed at all women of any age, with interest in entering the world of programming.",
+        "about.content_2": "Lead the change in the tech industry",
         "about.content_3": "Growth of women in tech roles in the last 5 years",
         "about.content_4": "Code now",
-        "about.content_5": "Collaboration and innovation in every project",
+        "about.content_5": "Because talent in technology has no gender",
 
         "sponsors.title": "Presented by",
 
@@ -92,11 +92,11 @@ export const labels = {
         "header.btn.theme.dark": "Modo tutayaq",
         "header.btn.theme.light": "Modo k'anchay",
 
-        "about.content_1": "Estereotipokunata pakispa, código nisqa paqarichispa. Imaraykuchus tecnología nisqapi talentoqa mana qhari warmi kanchu. K’anchariq yuyayniykiqa chaylla imachus industria tecnológica necesitan musuqyachinanpaq chaymanta digital hamuq pachata tikrananpaq.",
-        "about.content_2": "Industria tecnológica nisqapi tikrayta umalliq",
+        "about.content_1": "Ñuqaykuqa huk kichasqa programacion bootcamp kayku, llapa warmikunaman ima edadniyuq kaqkunamanpas, programacionpa pachanman yaykuyta munaspa.",
+        "about.content_2": "Industria tecnológica nisqapi tikrayta umalliy",
         "about.content_3": "Warmikuna wiñaynin tecnologia ruwaykunapi kay qhipa 5 watakunapi",
         "about.content_4": "Kunan codificay",
-        "about.content_5": "Sapa llamkaypi yanapanakuy hinaspa musuqyachiy",
+        "about.content_5": "Imaraykuchus tecnología nisqapi talentoqa mana qhari warmi kanchu",
 
         "sponsors.title": "Riqsichisqa",
 
