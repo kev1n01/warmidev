@@ -34,6 +34,14 @@
     }
 }
 
+a, .cursor-pointer, button {
+    cursor: url('/pointer2.png') , pointer;
+}
+
+html, body{
+    cursor: url('/select2.png'), default;
+}
+
 @font-face {
     font-family: 'Montserrat';
     src: url('../assets/font/montserrat.ttf') format('truetype');
