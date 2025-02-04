@@ -18,4 +18,7 @@ temas:
       - nombre: "▶️ Curso CSS desde cero"
         url: "https://www.youtube.com/watch?v=TlJbu0BMLaY"
         tipo: "Youtube"
+      - nombre: "🎦 Sesión 07 grabada"
+        url: "https://drive.google.com/file/d/1gVt2DO_eBQFrMqaRb-BStCzjBttkppd0/view?usp=sharing"
+        tipo: "Grabación"
 ---
