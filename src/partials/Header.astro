@@ -9,6 +9,7 @@ import IconTranslate from "@/icons/IconTranslate.astro";
 import IconX from "@/icons/IconX.astro";
 import Logo from "@assets/logo.webp";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import { SignedIn, UserButton } from "@clerk/astro/components";
 const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(
     currentLang as keyof typeof languageList,
@@ -91,6 +92,10 @@ const translateLabels = useTranslations(
             </button>
 
             <ThemeToogle />
+
+            <SignedIn>
+                <UserButton  />
+            </SignedIn>
 
             <!-- Mobile Menu Button -->
             <button
