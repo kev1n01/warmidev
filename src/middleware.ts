@@ -7,4 +7,6 @@ export const onRequest = clerkMiddleware((auth, context) => {
   if(isProtectedRoute(context.request) && !userId) {
     return redirectToSignIn();
   }
+}, {
+  authorizedParties: ["https://warmidev.tech, http://localhost:4321"],
 });

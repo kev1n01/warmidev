@@ -14,6 +14,10 @@ export default defineConfig({
       localization: esES,
     })
   ],
+  server: {
+    host: true,
+    port: 3005,
+  },
   adapter: node({mode: 'standalone'}),
   output: 'server',
   i18n: {
