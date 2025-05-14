@@ -1,8 +1,25 @@
 ---
 import CardTestimonial from "@/components/CardTestimonial.astro";
+
+const testimonials = [
+  {
+    bg: "bg-pink-400/50",
+    content: "Fue una experiencia increíble, conocí a muchas personas y aprendí mucho de cada una de ellas.",
+    picture: "https://avatars.githubusercontent.com/u/145782392?v=4",
+    name: "Karol",
+    link_social: "https://github.com/karoandrea",
+  },
+  {
+    bg: "bg-pink-400/50",
+    content: "Es una comunidad increíble que me ha brindado la oportunidad de aprender.",
+    picture: "https://avatars.githubusercontent.com/u/173434223?s=64&v=4",
+    name: "Ingrid",
+    link_social: "https://github.com/orgs/WarmiDev/people/inSahr",
+  }
+];
 ---
 
-<section class="h-auto pt-10 sm:pt-20" id="testimonials">
+<section class="h-auto pt-10 sm:pt-20" id="testimonials" >
     <div class="text-center mb-8">
         <h2 class="text-2xl font-bold">Testimonios</h2>
         <i
@@ -10,21 +27,18 @@ import CardTestimonial from "@/components/CardTestimonial.astro";
         ></i>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 sm:gap-8 gap-4">
-        <CardTestimonial
-            bg="bg-pink-200/20"
-            content="Este es un testimonio de ejemplo Este es un testimonio de ejemplo Este es un testimonio de ejemplo."
-            picture="https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8"
-            name="Maria Paz"
-            link_social="https://example.com"
-        />
-
-        <CardTestimonial
-            bg="bg-pink-200/20"
-            content="Este es un testimonio de ejemplo Este es un testimonio de ejemplo Este es un testimonio de ejemplo."
-            picture="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/e9b68ea9-5883-4334-82f3-9504663a0a86/3f6e6fc1-c870-41d6-9f45-c6c2b426b1ed.png"
-            name="Juana Pérez"
-            link_social="https://example.com"
-        />
+    <div style="mask-image: linear-gradient(to right, #0f172a 85%, transparent);">
+      <div class="grid grid-cols-1 md:grid-cols-2 sm:gap-8 gap-4 py-10 my-10" style="mask-image: linear-gradient(to left, #0f172a 85%, transparent);">
+        { testimonials.map((testimonial) => (
+          <CardTestimonial
+            bg={testimonial.bg}
+            content={testimonial.content}
+            picture={testimonial.picture}
+            name={testimonial.name}
+            link_social={testimonial.link_social}
+          />
+        ))
+        }
+      </div>
     </div>
 </section>
