@@ -1,9 +1,10 @@
 ---
 import IconArrowUp from "@/icons/IconArrowUp.astro";
 import WarmiUwu from "@/assets/warmiuwu.webp";
-import { getRelativeLocaleUrl } from "astro:i18n";
+// import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "@/i18n/utils";
 import type { languageList } from "@/i18n/ui";
+import { SignedOut, SignInButton } from "@clerk/astro/components";
 const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(
     currentLang as keyof typeof languageList,
@@ -64,22 +65,26 @@ const translateLabels = useTranslations(
                 class="min-h-40 sm:min-h-72"
                 style="width: 100%; aspect-ratio: 647/265;"
             />
-            <a
-                href={getRelativeLocaleUrl(currentLang, "temas")}
-                class="rounded-2xl relative p-[6px] group overflow-hidden hover:shadow-[0_0_100px_10px_rgba(96,165,250,2)] shadow-[0_0_20px_rgba(96,165,250,0.5)] transition-all h-16 w-1/2 sm:h-16 sm:w-1/3"
-            >
-                <div
-                    class="absolute inset-0 bg-gradient-to-r from-white via-[#EE7B79] to-cyan-300 dark:from-blue-400 dark:via-slate-500 dark:to-sky-400 animate-border"
+            <SignedOut>
+              <SignInButton mode="modal" asChild>
+                <button
+                    
+                    class="rounded-2xl relative p-[6px] group overflow-hidden hover:shadow-[0_0_100px_10px_rgba(96,165,250,2)] shadow-[0_0_20px_rgba(96,165,250,0.5)] transition-all h-16 w-1/2 sm:h-16 sm:w-1/3"
                 >
-                </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-white via-[#EE7B79] to-cyan-300 dark:from-blue-400 dark:via-slate-500 dark:to-sky-400 animate-border"
+                    >
+                    </div>
 
-                <div
-                    class="text-[#a35250] relative px-2 py-1 sm:px-4 sm:py-2 font-semibold rounded-2xl bg-white transition flex gap-1 items-center justify-center h-full w-full text-center font-buycat sm:text-2xl text-xl"
-                >
-                    {translateLabels("hero.button")}
-                    <IconArrowUp className="rotate-90 w-5 h-5" />
-                </div>
-            </a>
+                    <div
+                        class="text-[#a35250] relative px-2 py-1 sm:px-4 sm:py-2 font-semibold rounded-2xl bg-white transition flex gap-1 items-center justify-center h-full w-full text-center font-buycat sm:text-2xl text-xl"
+                    >
+                        {translateLabels("hero.button")}
+                        <IconArrowUp className="rotate-90 w-5 h-5" />
+                    </div>
+                </button>
+              </SignInButton>
+            <SignedOut/>
         </div>
     </div>
 </section>
