@@ -8,5 +8,5 @@ export const onRequest = clerkMiddleware((auth, context) => {
     return redirectToSignIn();
   }
 }, {
-  authorizedParties: ["https://warmidev.tech, http://localhost:4321"],
+  authorizedParties: ["https://warmidev.tech", "http://localhost:4321", "http://localhost:3005"],
 });
