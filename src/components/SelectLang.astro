@@ -100,4 +100,20 @@ const redirectPath = (lang: string) => {
     // Actualizar posición al hacer scroll o resize
     window.addEventListener("scroll", updateMenuPosition);
     window.addEventListener("resize", updateMenuPosition);
+
+    // onclickOutside hide menu
+    const handleClickOutside = (event: MouseEvent) => {
+        if (
+            selectMenu &&
+            !selectMenu.contains(event.target as Node) &&
+            selectToggle &&
+            !selectToggle.contains(event.target as Node)
+        ) {
+            selectMenu.classList.add("opacity-0");
+            selectMenu.classList.add("invisible");
+            selectMenu.classList.remove("visible");
+        }
+    };
+
+    document.addEventListener("click", handleClickOutside);
 </script>

@@ -12,18 +12,21 @@ const translateLabels = useTranslations(
     currentLang as keyof typeof languageList,
 );
 
-export async function getStaticPaths() {
-    const semanas = await getCollection("semanas");
-    return semanas.flatMap((semana: any) =>
-        semana.data.temas.map((tema: any) => ({
-            params: { slug: tema.slug },
-            props: {
-                tema,
-            },
-        })),
-    );
+const { slug } = Astro.params;
+
+const semanas = await getCollection("semanas", ({ id }: any) => {
+    return id.startsWith(`${currentLang}/`);
+});
+
+let tema;
+for (const semana of semanas) {
+    tema = semana.data.temas.find((t: any) => t.slug === slug);
+    if (tema) break;
 }
-const { tema }: any = Astro.props;
+
+if (!tema) {
+    return Astro.redirect("/404");
+}
 ---
 
 <Layout>

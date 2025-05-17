@@ -66,9 +66,9 @@ const translateLabels = useTranslations(
             <!-- Language Selector -->
             <button
                 id="select-toggle"
-                class="cursor-pointer flex items-center gap-1 p-2 bg-white/10 rounded-full transition-colors text-xs sm:text-sm relative group"
+                class="cursor-pointer flex items-center gap-1 p-2 bg-white/10 rounded-full transition-colors text-xs relative group"
             >
-                <IconTranslate className="w-4 h-4 sm:w-5 sm:h-5" />
+                <IconTranslate className="size-4" />
                 <span class="hidden sm:block">
                     <span class="font-semibold"
                         >{
@@ -93,9 +93,11 @@ const translateLabels = useTranslations(
 
             <ThemeToogle />
 
-            <SignedIn>
+            <div class="size-[35px] bg-white/10 rounded-full relative">
+              <SignedIn class="size-[35px] absolute top-0 left-0">
                 <UserButton  />
-            </SignedIn>
+              </SignedIn>
+            </div>
 
             <!-- Mobile Menu Button -->
             <button
