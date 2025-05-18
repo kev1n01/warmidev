@@ -120,6 +120,6 @@ npm run dev
   - [x] Soporte multilenguaje i18n (español, inglés y quechua)
   - [x] Sistema de sesiones/temas por semana y sus detalles (recursos, actividades)
   - [ ] Registro de avances para habilitar certificado
-  - [ ] Menú de navegación con Dots
+  - [x] Menú de navegación con Dots
   - [ ] Agente inteligente WarmiBot (RAG, EMBEDDINGS, LLM)
   - [ ] Sistema de calificación
