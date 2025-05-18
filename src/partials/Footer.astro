@@ -1,27 +1,15 @@
 ---
+import LogoRef from "@/components/LogoRef.astro";
 import TooltipCursor from "@/components/TooltipCursor.astro";
 import IconGithub from "@/icons/IconGithub.astro";
 import IconTiktok from "@/icons/IconTiktok.astro";
-import Logo from "@assets/logo.webp";
 ---
 
 <footer class="w-full border-t border-white/10">
     <div
         class="flex items-center justify-between p-4 sm:p-5 px-4 sm:px-6 lg:px-10"
     >
-        <a href="/">
-            <div
-                class="font-buycat text-lg sm:text-xl lg:text-2xl font-bold flex items-center content-center justify-center"
-            >
-                <img
-                    loading="lazy"
-                    src={Logo.src}
-                    alt="Logo"
-                    class="w-8 h-8 pb-[6px] object-contain"
-                />
-                <div class="flex items-center">ARMI</div>
-            </div>
-        </a>
+        <LogoRef />
 
         <div class="flex gap-2 sm:gap-3">
             <p class="text-sm italic">Hecho por @kevar</p>

@@ -1,4 +1,5 @@
 ---
+import LogoRef from "@/components/LogoRef.astro";
 import SelectLang from "@/components/SelectLang.astro";
 import ThemeToogle from "@/components/ThemeToogle.astro";
 import TooltipCursor from "@/components/TooltipCursor.astro";
@@ -7,8 +8,6 @@ import { useTranslations } from "@/i18n/utils";
 import IconMenu from "@/icons/IconMenu.astro";
 import IconTranslate from "@/icons/IconTranslate.astro";
 import IconX from "@/icons/IconX.astro";
-import Logo from "@assets/logo.webp";
-import { getRelativeLocaleUrl } from "astro:i18n";
 import { SignedIn, UserButton } from "@clerk/astro/components";
 const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(
@@ -20,19 +19,7 @@ const translateLabels = useTranslations(
     class="sticky top-3 z-10 w-full rounded-xl border border-white/10 bg-black/25 backdrop-blur-3xl shadow-inner shadow-white/50"
 >
     <div class="flex items-center justify-between p-3 px-4 sm:px-6 lg:px-10">
-        <a href={getRelativeLocaleUrl(currentLang, "/")}>
-            <div
-                class="font-buycat text-xl sm:text-3xl font-bold flex items-center justify-center"
-            >
-                <img
-                    src={Logo.src}
-                    alt="Logo"
-                    class="h-7 w-7 sm:w-8 sm:h-8 pb-1 sm:pb-[6px] object-contain"
-                />
-
-                <div class="flex items-center">ARMI</div>
-            </div>
-        </a>
+      <LogoRef />
 
         <!-- Desktop Navigation -->
         <nav
@@ -174,7 +161,6 @@ const translateLabels = useTranslations(
     // Ocultar elementos en la página /temas
     document.addEventListener("DOMContentLoaded", () => {
         let path = window.location.pathname;
-        console.log(path);
         let n_path = path.split("/").length;
         if (n_path === 4 || n_path === 5 || path === "/temas/") {
             const nav = document.querySelector("#desktop-nav");
