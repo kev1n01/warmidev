@@ -1,0 +1,86 @@
+---
+import "../styles/global.css";
+import { useTranslations } from "@/i18n/utils";
+import type { languageList } from "@/i18n/ui";
+import NavbarDots from "@/partials/NavbarDots.astro";
+const currentLang = Astro.currentLocale || "es";
+
+const translateLabels = useTranslations(
+	currentLang as keyof typeof languageList,
+);
+---
+
+<!doctype html>
+<html lang={currentLang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" href="/favicon.ico" sizes="any">
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+		<link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png">
+		<meta name="generator" content={Astro.generator} />
+		<link rel="manifest" href="/site.webmanifest" />
+		<title>{translateLabels("site.title")}</title>
+		<meta
+			name="description"
+			content={translateLabels("site.description")}
+		/>
+	</head>
+	<body class="relative bg-slate-900 text-white px-10 py-3 font-monts">
+		<div
+			class="absolute inset-0 bg-gradient-to-br from-purple-400 via-teal-100 to-pink-500 opacity-60 animate-pulse blur-2xl dark:from-[#2C3E50] dark:to-[#000000] dark:via-white/30"
+		>
+		</div>
+		<div
+			class="absolute inset-0 bg-gradient-to-tr from-purple-400 via-[#EE7B79] to-pink-300 opacity-50 blur-3xl dark:from-transparent dark:to-transparent dark:via-transparent"
+		>
+		</div>
+
+		<div
+			class="relative flex flex-col min-h-screen mx-auto sm:mx-20 md:mx-30 lg:mx-40 xl:mx-52 2xl:mx-60"
+		>
+			<main class="flex-grow">
+				<slot />
+			</main>
+      <NavbarDots />
+		</div>
+		<script>
+			let previosTitle = document.title;
+			const currentLocale = document.documentElement.lang;
+			let title_blur = "";
+
+			if (currentLocale === "en") {
+				title_blur = "Dont let go";
+			}
+
+			if (currentLocale === "es") {
+				title_blur = "No te vayas";
+			}
+
+			if (currentLocale === "qh") {
+				title_blur = "Ama Ripuychu";
+			}
+
+			window.addEventListener("blur", () => {
+				previosTitle = document.title;
+				document.title = title_blur + "🥺💔";
+			});
+
+			window.addEventListener("focus", () => {
+				document.title = previosTitle;
+			});
+		</script>
+	</body>
+</html>
+
+<style is:global>
+	html,
+	body {
+		font-family: system-ui, sans-serif;
+		scroll-behavior: smooth;
+		height: 100dvh;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+</style>
