@@ -7,11 +7,11 @@
   <h3 align="center">Documentación de WarmiDev</h3>
 
   <p align="center">
-    <a href="https://warmidev.tech/">Ver demo</a>
+    <a href="https://warmidev.tech/" target="_blank">Ver demo</a>
     &middot;
-    <a href="https://github.com/kev1n01/warmidev/issues/new?labels=bug&template=bug-report---.md">Reportar bug</a>
+    <a href="https://github.com/kev1n01/warmidev/issues/new?labels=bug&template=bug-report---.md" target="_blank">Reportar bug</a>
     &middot;
-    <a href="https://github.com/kev1n01/warmidev/issues/new?labels=enhancement&template=feature-request---.md">Agregar caracteristica</a>
+    <a href="https://github.com/kev1n01/warmidev/issues/new?labels=enhancement&template=feature-request---.md" target="_blank">Agregar caracteristica</a>
   </p>
 </div>
 
@@ -109,7 +109,7 @@ npm run dev
 
 - SDK Clerk astro
   - [x] Autenticación
-    - [ ] Github
+    - [x] Github
     - [x] Google
   - [x] Localizations
   - [ ] Modo oscuro y claro personalizado 
@@ -118,7 +118,8 @@ npm run dev
 - Aplicación 
   - [x] Modo oscuro y claro
   - [x] Soporte multilenguaje i18n (español, inglés y quechua)
-  - [x] Sistema de sesiones/temas por semana y sus detalles (recursos, actividades) 
+  - [x] Sistema de sesiones/temas por semana y sus detalles (recursos, actividades)
+  - [ ] Registro de avances para habilitar certificado
   - [ ] Menú de navegación con Dots
   - [ ] Agente inteligente WarmiBot (RAG, EMBEDDINGS, LLM)
   - [ ] Sistema de calificación
