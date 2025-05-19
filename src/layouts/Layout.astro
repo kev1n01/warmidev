@@ -6,11 +6,17 @@ import "../styles/global.css";
 import "../styles/custom-clerk.css";
 import { useTranslations } from "@/i18n/utils";
 import type { languageList } from "@/i18n/ui";
+import StreamChatBot from "@/partials/StreamChatBot.vue";
+import ButtonChatbot from "@/components/ButtonChatbot.vue";
 const currentLang = Astro.currentLocale || "es";
 
 const translateLabels = useTranslations(
 	currentLang as keyof typeof languageList,
 );
+
+const urlbot = import.meta.env.API_BOT_URL;
+const parammessage = Astro.url.searchParams.get('message') || '';
+
 ---
 
 <!doctype html>
@@ -47,6 +53,8 @@ const translateLabels = useTranslations(
 				<slot />
 			</main>
 			<ButtonTop />
+			<ButtonChatbot client:load />
+			<StreamChatBot client:load urlbot={String(urlbot)} parammessage={String(parammessage)} @visible=""/>
 			<Footer />
 		</div>
 		<script>

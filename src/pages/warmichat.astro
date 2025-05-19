@@ -1,0 +1,12 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ChatBox from "@/partials/ChatBox.vue";
+
+const message = Astro.url.searchParams.get('message') || '';
+const urlbot = import.meta.env.API_BOT_URL;
+
+---
+
+<Layout>
+  <ChatBox client:load parammessage={String(message)} urlbot={String(urlbot)} />
+</Layout>
