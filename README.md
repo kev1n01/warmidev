@@ -112,7 +112,7 @@ npm run dev
     - [x] Github
     - [x] Google
   - [x] Localizations
-  - [ ] Modo oscuro y claro personalizado 
+  - [x] Modo oscuro y claro personalizado 
   - [ ] Roles y permisos
   - [ ] Suscripciones únicas como donación
 - Aplicación 
@@ -121,5 +121,5 @@ npm run dev
   - [x] Sistema de sesiones/temas por semana y sus detalles (recursos, actividades)
   - [ ] Registro de avances para habilitar certificado
   - [x] Menú de navegación con Dots
-  - [ ] Agente inteligente WarmiBot (RAG, EMBEDDINGS, LLM)
+  - [x] Agente inteligente WarmiBot (RAG, EMBEDDINGS, LLM)
   - [ ] Sistema de calificación
