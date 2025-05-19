@@ -1,0 +1,198 @@
+
+/* CLASS CLERK COMPONENTS */
+/* avatar UserButton  */
+.cl-avatarBox{
+  width: 35px;
+  height: 35px;
+}
+
+/* card view options */
+.cl-internal-1grbo8b{
+  width: 15rem;
+  margin-top: 10px !important;
+}
+/* card footer */
+.dark .cl-internal-d50gl1{
+  background: #2C3E50 !important;
+  /* p secured and logo clerk */
+  .cl-internal-wf8x4b, .cl-internal-1fcj7sw{
+    color: #ffffff !important;
+  }
+}
+
+/* card elements */
+.cl-internal-muj3sv{
+  @apply rounded-xl border border-white/10 bg-black/50 w-full backdrop-blur-3xl shadow-inner shadow-white/50;
+  color: #ffffff !important;
+}
+/* card list options */
+.cl-internal-w46wub{
+  @apply hover:bg-white/10;
+  color: #ffffff !important;
+}
+
+@media (min-width: 360px) {
+  .cl-internal-1grbo8b{
+    width: 20rem;
+  }
+}
+
+/* account sidebar */
+.dark .cl-internal-13lvar6{
+  background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03)), linear-gradient(#2C3E50, #2C3E50);
+  .cl-internal-pp7u0o, .cl-internal-jurfxa, .cl-internal-1jbqck3 {
+    color: #ffffff !important;
+  }
+  .cl-internal-168uxhv{
+    color: #cecece !important;
+  }
+}
+/* footer icon secured clerk */
+.dark .cl-internal-wf8x4b, .dark .cl-internal-1fcj7sw{
+  color: #ffffff !important;
+}
+/* Sidebar Mobile */
+/* TopHead Modal mobile */
+.dark .cl-internal-1cftg7i {
+  background: #2C3E50 !important;
+  .cl-internal-14el7fr{
+    color: #ffffff !important;
+  }
+}
+/* footer modal mobile */
+.dark .cl-internal-to9o31{
+  background: #2C3E50 !important;
+}
+/* Close button */
+.dark .cl-internal-1vkfy7i{
+  color: #ffffff !important;
+}
+/* account content detail */
+.dark .cl-internal-c2xpfh{
+  background-color: #2C3E50 !important;
+  .cl-internal-190cjq9, .cl-internal-1y71s3o, .cl-internal-dqnjy0, .cl-internal-bd5msj, .cl-internal-1pz8pdy{
+    color: #ffffff !important;
+  }
+  .cl-internal-bolkfx, .cl-internal-x06ncm, .cl-internal-1v9xsvw {
+    color: #cecece !important;
+  }
+  .cl-internal-zpbffa{
+    color: #cecece !important;
+    background-color:  #73899e71 !important;
+    border-color: #73818f !important;
+  }
+  .cl-internal-nbukz8, .cl-internal-1uy7pse{
+    color: #babccd !important;
+  }
+  .cl-internal-1e217up {
+    background-color: #4a5e71 !important;
+    .cl-internal-1s0h3cl {
+      color: #ffffff !important;
+    }
+    .cl-internal-1p8ruhb {
+      color: #ffffff !important;  
+    }
+  }
+}
+
+.dark .cl-internal-rvg68x{
+  color: #ffffff !important;  
+}
+.dark .cl-internal-168uxhv{
+  color: #babccd !important; 
+}
+
+.cl-internal-6lplep{
+  background-color:  #2c3239 !important;
+}
+
+/* backdrop Modal view account */
+.dark .cl-internal-i34cwg{
+  background-color: #6b444361 !important;
+  backdrop-filter: blur(10px);
+}
+.cl-internal-i34cwg{
+  backdrop-filter: blur(10px);
+}
+
+/* Sing In */
+
+/* Modal */
+/* Backdrop */
+.dark .cl-internal-1gaxbcg{
+  background-color: #6b444361 !important;
+  backdrop-filter: blur(10px);
+}
+.cl-internal-1gaxbcg{
+  backdrop-filter: blur(10px);
+}
+/* Card */
+.dark .cl-internal-1p733cp{
+  background-color: #2C3E50 !important;
+  color: #ffffff !important;
+}
+/* p singin */
+.dark .cl-internal-1tpvhd8{
+  color: #ffffff !important;
+}
+/* p continue */
+.dark .cl-internal-1051a5p{
+  color: #cecece !important;
+}
+/* buttons sso providers */
+.dark .cl-internal-1ao9oa0{
+  background-color: #2f3037 !important;
+  color: #ffffff !important;
+}
+/* img github */
+.dark img.cl-providerIcon__github{
+  filter: invert(1);
+}
+/* p o */
+.dark .cl-internal-xexz24{
+  color: #dfdfdf !important;
+}
+/* lines divider */
+.dark .cl-internal-1foaaud{
+  background-color: #686868 !important;
+}
+/* label input */
+.dark .cl-internal-1c7fjmu{
+  color: #cecece !important;
+}
+/* input */
+.dark .cl-internal-172wsa5{
+  background-color: #2f3037 !important;
+  color: #ffffff !important;
+  @apply placeholder:text-gray-400;
+}
+/* Confirm Email */
+/* p continue */
+.dark .cl-internal-1vbkfwh{
+  color: #9fa0a8 !important;
+}
+/* email to confirm */
+.dark .cl-internal-j8ff2h{
+  color: #8b8c93 !important;
+}
+/* icon edit svg */
+.dark .cl-internal-v8mj6s{
+  color: #dadbdb !important;
+}
+/* input enter code */
+.dark .cl-internal-iz4t98{
+  color: #ffffff !important;
+  border-color: #cecece !important;
+}
+.dark .cl-internal-1jed3nu{
+  color: #ffffff !important;
+  border-color: #cecece !important;
+}
+/* other method */
+.dark .cl-internal-1v2koqu{
+  color: #8b8c93 !important;
+}
+/* Footer singing */
+.dark .cl-internal-4x6jej{
+  background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03)), linear-gradient(#2C3E50, #2C3E50);
+}
