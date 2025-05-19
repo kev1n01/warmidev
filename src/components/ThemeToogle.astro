@@ -8,6 +8,7 @@ const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(
     currentLang as keyof typeof languageList,
 );
+const { className } = Astro.props;
 ---
 
 <script>
@@ -51,7 +52,7 @@ const translateLabels = useTranslations(
     });
 </script>
 <button
-    class="cursor-pointer bg-white/10 rounded-full transition-colors p-1.5"
+    class={`${className} cursor-pointer bg-white/10 rounded-full transition-colors p-1.5`}
     id="themeSwitcher"
 >
     <p class="hidden dark:block relative group">

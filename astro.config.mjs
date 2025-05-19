@@ -5,6 +5,7 @@ import tailwind from '@astrojs/tailwind';
 import node from "@astrojs/node";
 import clerk from "@clerk/astro";
 import { esES } from '@clerk/localizations'
+import vue from '@astrojs/vue';
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,7 +13,8 @@ export default defineConfig({
     tailwind(), 
     clerk({
       localization: esES,
-    })
+    }),
+    vue()
   ],
   server: {
     host: true,

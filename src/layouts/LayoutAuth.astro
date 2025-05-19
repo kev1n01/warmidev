@@ -1,22 +1,14 @@
 ---
-import Footer from "@/partials/Footer.astro";
-import Header from "@/partials/Header.astro";
-import ButtonTop from "@/components/ButtonTop.astro";
 import "../styles/global.css";
 import "../styles/custom-clerk.css";
 import { useTranslations } from "@/i18n/utils";
 import type { languageList } from "@/i18n/ui";
-import StreamChatBot from "@/partials/StreamChatBot.vue";
-import ButtonChatbot from "@/components/ButtonChatbot.vue";
+import NavbarDots from "@/partials/NavbarDots.astro";
 const currentLang = Astro.currentLocale || "es";
 
 const translateLabels = useTranslations(
 	currentLang as keyof typeof languageList,
 );
-
-const urlbot = import.meta.env.API_BOT_URL;
-const parammessage = Astro.url.searchParams.get('message') || '';
-
 ---
 
 <!doctype html>
@@ -48,14 +40,10 @@ const parammessage = Astro.url.searchParams.get('message') || '';
 		<div
 			class="relative flex flex-col min-h-screen mx-auto sm:mx-20 md:mx-30 lg:mx-40 xl:mx-52 2xl:mx-60"
 		>
-			<Header />
 			<main class="flex-grow">
 				<slot />
 			</main>
-			<ButtonTop />
-			<ButtonChatbot client:load />
-			<StreamChatBot client:load urlbot={String(urlbot)} parammessage={String(parammessage)} @visible=""/>
-			<Footer />
+      <NavbarDots />
 		</div>
 		<script>
 			let previosTitle = document.title;

@@ -8,7 +8,7 @@
     }
 
     ::-webkit-scrollbar {
-        width: 10px;
+        width: 5px;
     }
 
     ::-webkit-scrollbar-track {
@@ -17,6 +17,7 @@
 
     ::-webkit-scrollbar-thumb {
         background: #ad7474;
+        border-radius: 10px
     }
     ::selection { background: #7e5578; color: white; }
     .dark ::selection { background: #5d7597; }
@@ -55,9 +56,4 @@ html, body{
 @font-face {
     font-family: 'Sakurata';
     src: url('../assets/font/sakurata.ttf') format('truetype');
-}
-
-.cl-avatarBox{
-  width: 35px;
-  height: 35px;
 }
