@@ -5,9 +5,9 @@ import ThemeToogle from "@/components/ThemeToogle.astro";
 import TooltipCursor from "@/components/TooltipCursor.astro";
 import { languageList } from "@/i18n/ui";
 import { useTranslations } from "@/i18n/utils";
-import IconMenu from "@/icons/IconMenu.astro";
+// import IconMenu from "@/icons/IconMenu.astro";
 import IconTranslate from "@/icons/IconTranslate.astro";
-import IconX from "@/icons/IconX.astro";
+// import IconX from "@/icons/IconX.astro";
 import { SignedIn, UserButton } from "@clerk/astro/components";
 const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(
@@ -87,7 +87,7 @@ const translateLabels = useTranslations(
             </SignedIn>
 
             <!-- Mobile Menu Button -->
-            <button
+            <!-- <button
                 class="sm:flex md:hidden flex p-1.5 sm:p-2 bg-white/10 rounded-full transition-colors"
                 id="menu-toggle"
                 title="Cambiar de tema"
@@ -101,12 +101,12 @@ const translateLabels = useTranslations(
                     className="w-5 h-5 sm:w-6 sm:h-6 hidden"
                     idName="close-icon"
                 />
-            </button>
+            </button> -->
         </div>
     </div>
 
     <!-- Mobile Menu Dropdown -->
-    <div
+    <!-- <div
         class="absolute top-full left-0 right-0 mt-1 hidden sm:hidden md:hidden text-sm sm:text-base"
         id="mobile-menu"
     >
@@ -128,7 +128,7 @@ const translateLabels = useTranslations(
                 </a>
             </nav>
         </div>
-    </div>
+    </div> -->
 </header>
 <SelectLang />
 
