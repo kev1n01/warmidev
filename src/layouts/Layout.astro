@@ -16,7 +16,8 @@ const translateLabels = useTranslations(
 
 const urlbot = import.meta.env.API_BOT_URL;
 const parammessage = Astro.url.searchParams.get('message') || '';
-
+const user = await Astro.locals.currentUser()
+const names = user?.firstName || 'sin nombre'
 ---
 
 <!doctype html>
@@ -54,7 +55,7 @@ const parammessage = Astro.url.searchParams.get('message') || '';
 			</main>
 			<ButtonTop />
 			<ButtonChatbot client:load />
-			<StreamChatBot client:load urlbot={String(urlbot)} parammessage={String(parammessage)} @visible=""/>
+			<StreamChatBot client:load urlbot={String(urlbot)} parammessage={String(parammessage)} names={String(names)} />
 			<Footer />
 		</div>
 		<script>

@@ -4,9 +4,10 @@ import ChatBox from "@/partials/ChatBox.vue";
 
 const message = Astro.url.searchParams.get('message') || '';
 const urlbot = import.meta.env.API_BOT_URL;
-
+const user = await Astro.locals.currentUser()
+const names = user?.firstName || 'sin nombre'
 ---
 
 <Layout>
-  <ChatBox client:load parammessage={String(message)} urlbot={String(urlbot)} />
+  <ChatBox client:load parammessage={String(message)} urlbot={String(urlbot)} names={String(names)} />
 </Layout>

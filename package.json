@@ -11,6 +11,7 @@
   "dependencies": {
     "@astrojs/node": "^9.2.1",
     "@astrojs/tailwind": "^5.1.4",
+    "@astrojs/vercel": "^8.1.4",
     "@astrojs/vue": "^5.0.13",
     "@clerk/astro": "^2.7.1",
     "@clerk/localizations": "^3.15.2",
