@@ -162,7 +162,7 @@ const translateLabels = useTranslations(
     document.addEventListener("DOMContentLoaded", () => {
         let path = window.location.pathname;
         let n_path = path.split("/").length;
-        if (n_path === 4 || n_path === 5 || path === "/temas/") {
+        if (n_path === 4 || n_path === 5 || path === "/temas/" || path === "/warmichat") {
             const nav = document.querySelector("#desktop-nav") as HTMLElement;
             if (nav) nav.style.display = "none";
             menuToggle?.classList.add("hidden");
