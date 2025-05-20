@@ -3,6 +3,12 @@ import LogoRef from "@/components/LogoRef.astro";
 import TooltipCursor from "@/components/TooltipCursor.astro";
 import IconGithub from "@/icons/IconGithub.astro";
 import IconTiktok from "@/icons/IconTiktok.astro";
+import { useTranslations } from "@/i18n/utils";
+import type { languageList } from "@/i18n/ui";
+const currentLang = Astro.currentLocale || "es";
+const translateLabels = useTranslations(
+    currentLang as keyof typeof languageList,
+);
 ---
 
 <footer class="w-full border-t border-white/10">
@@ -12,7 +18,7 @@ import IconTiktok from "@/icons/IconTiktok.astro";
         <LogoRef />
 
         <div class="flex gap-2 sm:gap-3">
-            <p class="text-xs sm:text-sm italic">Hecho por @kearnold</p>
+            <p class="text-xs sm:text-sm italic">{translateLabels("footer.madeby")} @kearnold</p>
             <a
                 target="_blank"
                 href="https://github.com/kev1n01"

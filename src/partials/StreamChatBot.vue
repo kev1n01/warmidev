@@ -8,6 +8,8 @@ import { ref } from "vue";
 import { useHiddenContainerChat } from "@/lib/useHiddenContainerChat";
 import { useMessageHandler } from "@/lib/messageHandler";
 const { isHidden } = useHiddenContainerChat();
+import { useTranslations } from "@/i18n/utils";
+import TooltipCursor from "@/components/TooltipCursor.vue";
 
 const inputText = ref("");
 const { isLoading, streamBotResponse } = useMessageHandler();
@@ -23,9 +25,16 @@ const props = defineProps({
   names: {
     type: String,
     required: true
-  }
+  },
+  currentLang: {
+    type: String,
+    required: true
+  },
 });
 
+const translateLabels = useTranslations(
+    props.currentLang,
+);
 const sendMessage = async () => {
   if (inputText.value.trim() === "") return;
   // Si no hay parametro message redireccionar a warmichat
@@ -48,6 +57,9 @@ function handleKeyDown(event) {
   if (event.key === 'Enter') {
     sendMessage();
   }
+  if (event.key === 'Escape') {
+    inputText.value = '';
+  }
 }
 </script>
 
@@ -59,12 +71,15 @@ function handleKeyDown(event) {
       'opacity-0': !isHidden,
     }">
     <div class="flex items-center gap-2">
-      <button @click="isHidden = false" class="cursor-pointer" title="Cerrar chat">
-        <IconCircleMinus class="size-4 sm:size-5" />
+      <button @click="isHidden = false" class="cursor-pointer" :title="translateLabels('chat.button.hidden.label')">
+        <p class="relative group">
+          <TooltipCursor :label="translateLabels('chat.button.hidden.label')" position="bottom-[30px] left-1/2"/>
+          <IconCircleMinus class="size-4 sm:size-5" />
+        </p>
       </button>
-      <input type="text" name="chat" placeholder="Haz cualquier pregunta sobre WarmiDev"
+      <input type="text" name="chat" :placeholder="translateLabels('chat.input.placeholder')"
         class="w-full p-2 border-none focus:outline-none focus:ring-0 bg-transparent text-white placeholder:text-white/80 placeholder:text-xs sm:placeholder:text-sm"
-        autofocus v-model="inputText" @keydown="handleKeyDown" />
+        autofocus v-model="inputText" @keydown="handleKeyDown"  :disabled="isLoading" />
       <button :class="[inputText !== '' ? 'block' : 'hidden']" @click="inputText = ''">
         <IconX class="size-4 sm:size-5" />
       </button>

@@ -39,7 +39,16 @@ export const labels = {
         "topics.details.prefix.task": "TAREA",
         "topics.details.no.task": "No hay tareas",
         "topics.details.no.resource": "No hay recursos",
-        "topics.details.resource.title": "Recursos"
+        "topics.details.resource.title": "Recursos",
+
+        // footer
+        "footer.madeby": "Hecho por",
+
+        // Chatbot
+        "chat.input.placeholder": "Haz cualquier pregunta sobre WarmiDev",
+        "chat.buttonfloat.label": "Preguntar WarmiBot",
+        "chat.buttonfloat.title": "Abrir chat",
+        "chat.button.hidden.label": "Cerrar chat"
     },
     en: {
         "site.title": "Warmi Dev | Bootcamp",
@@ -74,7 +83,16 @@ export const labels = {
         "topics.details.prefix.task": "TASK",
         "topics.details.no.task": "There are no tasks for this topic",
         "topics.details.no.resource": "There are no resources for this topic",
-        "topics.details.resource.title": "Resources"
+        "topics.details.resource.title": "Resources",
+        
+        // footer
+        "footer.madeby": "Made by",
+
+        // Chatbot
+        "chat.input.placeholder": "Ask any questions about WarmiDev",
+        "chat.buttonfloat.label": "Ask WarmiBot",
+        "chat.buttonfloat.title": "Open chat",
+        "chat.button.hidden.label": "Close chat"
 
     },
     qh: {
@@ -110,7 +128,16 @@ export const labels = {
         "topics.details.prefix.task": "RUWAY",
         "topics.details.no.task": "Kay temapaq manam llamkanakuna kanchu",
         "topics.details.no.resource": "Kay temapaq manam ima yanapakuykuna kanchu",
-        "topics.details.resource.title": "Imakuna"
+        "topics.details.resource.title": "Imakuna",
+
+        // footer
+        "footer.madeby": "Ruwasqa",
+
+        // Chatbot
+        "chat.input.placeholder": "WarmiDevmanta ima tapukuytapas ruway",
+        "chat.buttonfloat.label": "WarmiBot nisqamanta tapuy",
+        "chat.buttonfloat.title": "kichasqa rimanakuy",
+        "chat.button.hidden.label": "Wichqay rimanakuy"
 
     }
 } as const

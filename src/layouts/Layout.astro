@@ -54,8 +54,8 @@ const names = user?.firstName || 'sin nombre'
 				<slot />
 			</main>
 			<ButtonTop />
-			<ButtonChatbot client:load />
-			<StreamChatBot client:load urlbot={String(urlbot)} parammessage={String(parammessage)} names={String(names)} />
+			<ButtonChatbot client:load currentLang={String(currentLang)}/>
+			<StreamChatBot client:load urlbot={String(urlbot)} parammessage={String(parammessage)} names={String(names)} currentLang={String(currentLang)} />
 			<Footer />
 		</div>
 		<script>
