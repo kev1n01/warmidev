@@ -1,5 +1,5 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import LayoutAuth from "@/layouts/LayoutAuth.astro";
 import { getCollection } from "astro:content";
 import IconLinkExternal from "@/icons/IconLinkExternal.astro";
 import IconArrowUp from "@/icons/IconArrowUp.astro";
@@ -29,7 +29,7 @@ if (!tema) {
 }
 ---
 
-<Layout>
+<LayoutAuth>
     <div class="space-y-2 pb-10 pt-3 text-white">
         <div class="flex justify-between items-center">
             <div class="p-2 flex gap-2 items-center">
@@ -190,4 +190,4 @@ if (!tema) {
             transform: rotate(90deg);
         }
     </style>
-</Layout>
+</LayoutAuth>
