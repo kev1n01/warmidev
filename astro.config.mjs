@@ -2,10 +2,11 @@
 import { defineConfig } from 'astro/config';
 
 import tailwind from '@astrojs/tailwind';
-import node from "@astrojs/node";
+// import node from "@astrojs/node";
 import clerk from "@clerk/astro";
 import { esES } from '@clerk/localizations'
 import vue from '@astrojs/vue';
+import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,7 +21,12 @@ export default defineConfig({
     host: true,
     port: 3005,
   },
-  adapter: node({mode: 'standalone'}),
+  // adapter: node({mode: 'standalone'}),
+  adapter: vercel({
+    webAnalytics:{
+      enabled: true
+    }
+  }),
   output: 'server',
   i18n: {
     defaultLocale: 'es',
