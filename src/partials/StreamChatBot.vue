@@ -10,6 +10,7 @@ import { useMessageHandler } from "@/lib/messageHandler";
 const { isHidden } = useHiddenContainerChat();
 import { useTranslations } from "@/i18n/utils";
 import TooltipCursor from "@/components/TooltipCursor.vue";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const inputText = ref("");
 const { isLoading, streamBotResponse } = useMessageHandler();
@@ -39,7 +40,7 @@ const sendMessage = async () => {
   if (inputText.value.trim() === "") return;
   // Si no hay parametro message redireccionar a warmichat
   if (props.parammessage === "" && qaStore.messages.value.length === 0) {
-    window.location.href = `/warmichat?message=${encodeURIComponent(inputText.value.trim())}`;
+    window.location.href = getRelativeLocaleUrl(props.currentLang, `/warmichat?message=${encodeURIComponent(inputText.value.trim())}`);
     return;
   }
 
