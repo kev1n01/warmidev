@@ -49,12 +49,16 @@ export const labels = {
         "chat.buttonfloat.label": "Preguntar WarmiBot",
         "chat.buttonfloat.title": "Abrir chat",
         "chat.button.hidden.label": "Cerrar chat",
+        "chatbot.loading.messages": "Cargando mensajes",
 
         // NavbarDots
         "dot.home": "Inicio",
         "dot.chatbot": "Chat AI",
         "dot.theme": "Tema",
         "dot.account": "Cuenta",
+        
+        // 404 not found
+        "404.text": "Página no encontrada",
     },
     en: {
         "site.title": "Warmi Dev | Bootcamp",
@@ -99,12 +103,16 @@ export const labels = {
         "chat.buttonfloat.label": "Ask WarmiBot",
         "chat.buttonfloat.title": "Open chat",
         "chat.button.hidden.label": "Close chat",
+        "chatbot.loading.messages": "Loading messages",
 
         // NavbarDots
         "dot.home": "Home",
         "dot.chatbot": "Chat AI",
         "dot.theme": "Theme",
-        "dot.account": "Account",
+        "dot.account": "Account",        
+
+        // 404 not found
+        "404.text": "Page not found",
     },
     qh: {
         "site.title": "Warmi Dev | Bootcamp nisqa",
@@ -149,13 +157,16 @@ export const labels = {
         "chat.buttonfloat.label": "WarmiBot nisqamanta tapuy",
         "chat.buttonfloat.title": "kichasqa rimanakuy",
         "chat.button.hidden.label": "Wichqay rimanakuy",
+        "chatbot.loading.messages": "Willakuykunata kargaspa",
 
         // NavbarDots
         "dot.home": "wasi",
         "dot.chatbot": "Chat AI",
-        "dot.theme": "Temas nisqakuna",
+        "dot.theme": "Temas",
         "dot.account": "Yupay",
-
+                
+        // 404 not found
+        "404.text": "P'anqa mana tarisqachu",
     }
 } as const
 

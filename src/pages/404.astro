@@ -1,11 +1,16 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { useTranslations } from "@/i18n/utils";
+import type { languageList } from "@/i18n/ui";
+const currentLang = Astro.currentLocale || "es";
+const translateLabels = useTranslations(
+    currentLang as keyof typeof languageList,
+);
 ---
 
 <Layout>
     <div class="flex flex-col justify-center content-center items-center h-svh space-y-7 text-center">
         <h1 class="font-buycat text-9xl">404</h1>
-        <p class="font-buycat text-4xl">Página no encontrada</p>
-        <a href="/" class="font-buycat text-2xl px-8 py-2 bg-violet-500/70 rounded-lg hover:scale-105">Volver</a>
+        <p class="font-buycat text-4xl">{ translateLabels('404.text') }</p>
     </div>
 </Layout>

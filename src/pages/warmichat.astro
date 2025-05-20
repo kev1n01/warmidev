@@ -6,8 +6,10 @@ const message = Astro.url.searchParams.get('message') || '';
 const urlbot = import.meta.env.API_BOT_URL;
 const user = await Astro.locals.currentUser()
 const names = user?.firstName || 'sin nombre'
+const currentLang = Astro.currentLocale || "es";
+
 ---
 
 <Layout>
-  <ChatBox client:load parammessage={String(message)} urlbot={String(urlbot)} names={String(names)} />
+  <ChatBox client:load parammessage={String(message)} urlbot={String(urlbot)} names={String(names)} currentLang={String(currentLang)} />
 </Layout>
