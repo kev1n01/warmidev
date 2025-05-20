@@ -38,7 +38,7 @@
 }
 
 /* account sidebar */
-.dark .cl-internal-13lvar6{
+.dark .cl-internal-13lvar6, .dark .cl-internal-k7p5wl{
   background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03)), linear-gradient(#2C3E50, #2C3E50);
   .cl-internal-pp7u0o, .cl-internal-jurfxa, .cl-internal-1jbqck3 {
     color: #ffffff !important;
@@ -46,6 +46,10 @@
   .cl-internal-168uxhv{
     color: #cecece !important;
   }
+}
+/* border mobile account sidebar */
+.dark .cl-internal-k7p5wl {
+  border-right: 1px solid #a1a1a1ad !important;
 }
 /* footer icon secured clerk */
 .dark .cl-internal-wf8x4b, .dark .cl-internal-1fcj7sw{
@@ -131,6 +135,10 @@
   background-color: #2C3E50 !important;
   color: #ffffff !important;
 }
+/* x close icon */
+.dark .cl-internal-1p9bjxm{
+  color: #cecece !important;
+}
 /* p singin */
 .dark .cl-internal-1tpvhd8{
   color: #ffffff !important;
@@ -140,7 +148,7 @@
   color: #cecece !important;
 }
 /* buttons sso providers */
-.dark .cl-internal-1ao9oa0{
+.dark .cl-internal-1ao9oa0, .dark .cl-internal-yj31gg{
   background-color: #2f3037 !important;
   color: #ffffff !important;
 }

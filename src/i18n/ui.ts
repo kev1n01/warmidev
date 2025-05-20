@@ -48,7 +48,13 @@ export const labels = {
         "chat.input.placeholder": "Haz cualquier pregunta sobre WarmiDev",
         "chat.buttonfloat.label": "Preguntar WarmiBot",
         "chat.buttonfloat.title": "Abrir chat",
-        "chat.button.hidden.label": "Cerrar chat"
+        "chat.button.hidden.label": "Cerrar chat",
+
+        // NavbarDots
+        "dot.home": "Inicio",
+        "dot.chatbot": "Chat AI",
+        "dot.theme": "Tema",
+        "dot.account": "Cuenta",
     },
     en: {
         "site.title": "Warmi Dev | Bootcamp",
@@ -92,8 +98,13 @@ export const labels = {
         "chat.input.placeholder": "Ask any questions about WarmiDev",
         "chat.buttonfloat.label": "Ask WarmiBot",
         "chat.buttonfloat.title": "Open chat",
-        "chat.button.hidden.label": "Close chat"
+        "chat.button.hidden.label": "Close chat",
 
+        // NavbarDots
+        "dot.home": "Home",
+        "dot.chatbot": "Chat AI",
+        "dot.theme": "Theme",
+        "dot.account": "Account",
     },
     qh: {
         "site.title": "Warmi Dev | Bootcamp nisqa",
@@ -137,7 +148,13 @@ export const labels = {
         "chat.input.placeholder": "WarmiDevmanta ima tapukuytapas ruway",
         "chat.buttonfloat.label": "WarmiBot nisqamanta tapuy",
         "chat.buttonfloat.title": "kichasqa rimanakuy",
-        "chat.button.hidden.label": "Wichqay rimanakuy"
+        "chat.button.hidden.label": "Wichqay rimanakuy",
+
+        // NavbarDots
+        "dot.home": "wasi",
+        "dot.chatbot": "Chat AI",
+        "dot.theme": "Temas nisqakuna",
+        "dot.account": "Yupay",
 
     }
 } as const

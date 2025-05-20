@@ -7,6 +7,7 @@ import { languageList } from "@/i18n/ui";
 import { useTranslations } from "@/i18n/utils";
 // import IconMenu from "@/icons/IconMenu.astro";
 import IconTranslate from "@/icons/IconTranslate.astro";
+import IconCheck from "@/icons/IconCheck.astro";
 // import IconX from "@/icons/IconX.astro";
 import { SignedIn, UserButton } from "@clerk/astro/components";
 const currentLang = Astro.currentLocale || "es";
@@ -82,7 +83,15 @@ const translateLabels = useTranslations(
 
             <SignedIn class="size-[35px]">
               <div class="size-[35px] bg-white/10 rounded-full">
-                <UserButton  />
+                <UserButton>
+                  <UserButton.MenuItems>
+                    <UserButton.Link label="Ver certificado" href="/certificado">
+                      <IconCheck className="text-white size-4" slot="label-icon" />
+                    </UserButton.Link>
+                    <UserButton.Action label="manageAccount" />
+                    <UserButton.Action label="signOut" />
+                  </UserButton.MenuItems>
+                </UserButton>
               </div>
             </SignedIn>
 
