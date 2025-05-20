@@ -1,18 +1,17 @@
-export const agentWarmi = async (urlapi: string, message: string) => {
+export const agentWarmi = async (urlapi: string, data: any) => {
   const response =  await fetch(urlapi + "bot/query/warmibot", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ query: message }),
+    body: JSON.stringify(data),
   });
     
-  return await response.json();
-  // const reader = response.body?.getReader();
-  // const decoder = new TextDecoder();
+  const reader = response.body?.getReader();
+  const decoder = new TextDecoder();
 
-  // return {
-  //     stream: reader,
-  //     decoder: decoder
-  // };
+  return {
+      stream: reader,
+      decoder: decoder
+  };
 }
