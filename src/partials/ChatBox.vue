@@ -84,13 +84,13 @@ onMounted(async () => {
         <div v-if="message.isLoading && !message.isStreaming">
           <div class="animate-pulse flex space-x-4">
             <div class="flex-1 space-y-6 py-1">
-              <div class="h-2 bg-gray-500 rounded"></div>
+              <div class="h-2  bg-white/20 dark:bg-gray-500 rounded"></div>
               <div class="space-y-3">
                 <div class="grid grid-cols-3 gap-4">
-                  <div class="h-2 bg-gray-500 rounded col-span-2"></div>
-                  <div class="h-2 bg-gray-500 rounded col-span-1"></div>
+                  <div class="h-2  bg-white/20 dark:bg-gray-500 rounded col-span-2"></div>
+                  <div class="h-2  bg-white/20 dark:bg-gray-500 rounded col-span-1"></div>
                 </div>
-                <div class="h-2 bg-gray-500 rounded"></div>
+                <div class="h-2  bg-white/20 dark:bg-gray-500 rounded"></div>
               </div>
             </div>
           </div>
@@ -111,11 +111,11 @@ onMounted(async () => {
 }
 
 .content-markdown code {
-  @apply bg-slate-950 text-rose-300 p-2 rounded-lg !mt-10;
+  @apply bg-slate-100/20 dark:bg-slate-950 text-black dark:text-rose-300 p-2 rounded-lg !mt-10;
 }
 
 .content-markdown a {
-  @apply text-violet-300 hover:text-violet-400 hover:underline;
+  @apply text-black dark:text-violet-300 dark:hover:text-violet-400 hover:underline;
 }
 
 .content-markdown li::before {
