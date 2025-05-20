@@ -39,7 +39,26 @@ export const labels = {
         "topics.details.prefix.task": "TAREA",
         "topics.details.no.task": "No hay tareas",
         "topics.details.no.resource": "No hay recursos",
-        "topics.details.resource.title": "Recursos"
+        "topics.details.resource.title": "Recursos",
+
+        // footer
+        "footer.madeby": "Hecho por",
+
+        // Chatbot
+        "chat.input.placeholder": "Haz cualquier pregunta sobre WarmiDev",
+        "chat.buttonfloat.label": "Preguntar WarmiBot",
+        "chat.buttonfloat.title": "Abrir chat",
+        "chat.button.hidden.label": "Cerrar chat",
+        "chatbot.loading.messages": "Cargando mensajes",
+
+        // NavbarDots
+        "dot.home": "Inicio",
+        "dot.chatbot": "Chat AI",
+        "dot.theme": "Tema",
+        "dot.account": "Cuenta",
+        
+        // 404 not found
+        "404.text": "Página no encontrada",
     },
     en: {
         "site.title": "Warmi Dev | Bootcamp",
@@ -74,8 +93,26 @@ export const labels = {
         "topics.details.prefix.task": "TASK",
         "topics.details.no.task": "There are no tasks for this topic",
         "topics.details.no.resource": "There are no resources for this topic",
-        "topics.details.resource.title": "Resources"
+        "topics.details.resource.title": "Resources",
+        
+        // footer
+        "footer.madeby": "Made by",
 
+        // Chatbot
+        "chat.input.placeholder": "Ask any questions about WarmiDev",
+        "chat.buttonfloat.label": "Ask WarmiBot",
+        "chat.buttonfloat.title": "Open chat",
+        "chat.button.hidden.label": "Close chat",
+        "chatbot.loading.messages": "Loading messages",
+
+        // NavbarDots
+        "dot.home": "Home",
+        "dot.chatbot": "Chat AI",
+        "dot.theme": "Theme",
+        "dot.account": "Account",        
+
+        // 404 not found
+        "404.text": "Page not found",
     },
     qh: {
         "site.title": "Warmi Dev | Bootcamp nisqa",
@@ -110,8 +147,26 @@ export const labels = {
         "topics.details.prefix.task": "RUWAY",
         "topics.details.no.task": "Kay temapaq manam llamkanakuna kanchu",
         "topics.details.no.resource": "Kay temapaq manam ima yanapakuykuna kanchu",
-        "topics.details.resource.title": "Imakuna"
+        "topics.details.resource.title": "Imakuna",
 
+        // footer
+        "footer.madeby": "Ruwasqa",
+
+        // Chatbot
+        "chat.input.placeholder": "WarmiDevmanta ima tapukuytapas ruway",
+        "chat.buttonfloat.label": "WarmiBot nisqamanta tapuy",
+        "chat.buttonfloat.title": "kichasqa rimanakuy",
+        "chat.button.hidden.label": "Wichqay rimanakuy",
+        "chatbot.loading.messages": "Willakuykunata kargaspa",
+
+        // NavbarDots
+        "dot.home": "wasi",
+        "dot.chatbot": "Chat AI",
+        "dot.theme": "Temas",
+        "dot.account": "Yupay",
+                
+        // 404 not found
+        "404.text": "P'anqa mana tarisqachu",
     }
 } as const
 

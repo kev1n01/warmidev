@@ -1,5 +1,5 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import LayoutAuth from "@/layouts/LayoutAuth.astro";
 import { getCollection } from "astro:content";
 import ItemTheme from "@/components/ItemTheme.astro";
 import { useTranslations } from "@/i18n/utils";
@@ -10,10 +10,10 @@ const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(
     currentLang as keyof typeof languageList,
 );
-
 const semanas = await getCollection("semanas", ({ id }: any) => {
     return id.startsWith(`${currentLang}/`);
 });
+
 const semanasOrdenadas = semanas.sort(
     (a: any, b: any) => a.data.numero - b.data.numero,
 );
@@ -23,11 +23,10 @@ const semanasSimplificadas = semanas
         numero: semana.data.numero,
         w_motivation: semana.data.w_motivation,
         titulo: semana.data.titulo,
-        label_select: semana.data.label_select,
     }));
 ---
 
-<Layout>
+<LayoutAuth>
     <div class="flex justify-end w-full items-center pt-10">
         <div
             class="text-center bg-violet-500/60 rounded-lg p-2 w-full sm:w-[66.5%]"
@@ -112,7 +111,7 @@ const semanasSimplificadas = semanas
             </div>
         </div>
     </div>
-</Layout>
+</LayoutAuth>
 
 <script define:vars={{ semanasSimplificadas }}>
     function filtrarPorSemana(semanaSeleccionada) {
@@ -161,9 +160,9 @@ const semanasSimplificadas = semanas
         filtrarPorSemana(selector.value);
 
         // set w-motivation text from week to defaul numero 1
-        title_week.innerText = "Sapa semana";
+        title_week.innerText = "Todas las semanas";
         w_motivation.innerHTML =
-            '"Sichus desmotivasqa kanki chayqa, motivakuylla :D XD." – ChatGPT';
+            '"Si te desmotivas, solo motivate :D XD. Solo sé amiga de la frustracción" – ChatGPT';
 
         selector?.addEventListener("change", (e) => {
             const selectedValue = e.target.value;
@@ -179,16 +178,16 @@ const semanasSimplificadas = semanas
             });
 
             if (selectedValue === "todas") {
-                title_week.innerText = "Sapa semana";
+                title_week.innerText = "Todas las semanas";
                 w_motivation.innerHTML =
-                    '"Sichus desmotivasqa kanki chayqa, motivakuylla :D XD." – ChatGPT';
+                    '"Si te desmotivas, solo motivate :D XD." – Acuña';
             } else {
                 week = semanasSimplificadas.find(
                     (s) => s.numero === parseInt(selectedValue),
                 );
 
                 title_week.innerText =
-                    selectedValue + " kaq " + tsemana + ": " + week.titulo;
+                    tsemana + " " + selectedValue + ": " + week.titulo;
                 w_motivation.innerHTML = week.w_motivation;
             }
         });

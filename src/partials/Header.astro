@@ -7,6 +7,7 @@ import { languageList } from "@/i18n/ui";
 import { useTranslations } from "@/i18n/utils";
 // import IconMenu from "@/icons/IconMenu.astro";
 import IconTranslate from "@/icons/IconTranslate.astro";
+import IconCheck from "@/icons/IconCheck.astro";
 // import IconX from "@/icons/IconX.astro";
 import { SignedIn, UserButton } from "@clerk/astro/components";
 const currentLang = Astro.currentLocale || "es";
@@ -82,7 +83,15 @@ const translateLabels = useTranslations(
 
             <SignedIn class="size-[35px]">
               <div class="size-[35px] bg-white/10 rounded-full">
-                <UserButton  />
+                <UserButton>
+                  <UserButton.MenuItems>
+                    <UserButton.Link label="Ver certificado" href="/certificado">
+                      <IconCheck className="text-white size-4" slot="label-icon" />
+                    </UserButton.Link>
+                    <UserButton.Action label="manageAccount" />
+                    <UserButton.Action label="signOut" />
+                  </UserButton.MenuItems>
+                </UserButton>
               </div>
             </SignedIn>
 
@@ -162,7 +171,7 @@ const translateLabels = useTranslations(
     document.addEventListener("DOMContentLoaded", () => {
         let path = window.location.pathname;
         let n_path = path.split("/").length;
-        if (n_path === 4 || n_path === 5 || path === "/temas/" || path === "/warmichat") {
+        if (n_path === 4 || n_path === 5 || path === "/temas/" || path === "/warmichat" || path === "/en/warmichat" || path === "/qh/warmichat") {
             const nav = document.querySelector("#desktop-nav") as HTMLElement;
             if (nav) nav.style.display = "none";
             menuToggle?.classList.add("hidden");
