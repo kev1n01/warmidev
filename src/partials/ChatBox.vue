@@ -5,6 +5,7 @@ import { qaStore, messages } from "@/lib/qaStore";
 import { onMounted, ref, nextTick, watch } from "vue";
 import VueMarkdown from 'vue-markdown-render'
 import { useTranslations } from "@/i18n/utils";
+import imgWarmiBoot from "@assets/warmiboot.webp"
 
 const props = defineProps({
   parammessage: {
@@ -69,12 +70,33 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div v-if="loadingmessages" class="flex justify-center items-center content-center gap-2 h-[80dvh]">
-    <IconLoader class="size-5 animate-spin" />
-    {{translateLabels('chatbot.loading.messages')}}
+  <div v-if="messages.length === 0 || loadingmessages " class="flex justify-center items-center content-center h-dvh">
+    <div>
+      <div class="relative p-5 w-full h-full">
+        <h3
+          class="bg-pink-50 rounded-xl px-3 py-1 absolute -top-10 -left-5  sm:-top-0 sm:-left-1/4 text-slate-900 text-sm sm:text-base rounded-br-none w-[100px] lg:w-[200px] text-center shadow-inner shadow-slate-700">
+          <span v-if="messages.length !== 0 && messages" class="flex justify-center items-center content-center gap-2">
+            <IconLoader class="size-5 animate-spin" />
+            {{ translateLabels('chatbot.loading.messages') }}
+          </span>
+          <span v-else>
+            {{ translateLabels('chatbot.welcome') }} {{ props.names }}.
+            <span>{{ translateLabels('chatbot.question.help') }}</span>
+          </span>
+        </h3>
+        <div class="relative">
+          <img :src="imgWarmiBoot.src" alt="warmibotblur" width="200" height="200"
+            class="sm:size-[300px] blur-lg invert dark:invert-0" loading="lazy" />
+          <img :src="imgWarmiBoot.src" alt="warmibot" width="200" height="200"
+            class="sm:size-[300px] inset-0 absolute" />
+        </div>
+      </div>
+    </div>
   </div>
-  <div v-else ref="messagesContainer" class="m-5 sm:m-20 flex flex-col space-y-4 max-h-[80dvh] overflow-y-auto scroll-smooth overflow-x-hidden">
-    <div v-for="(message, index) in messages" :key="index">
+
+  <div v-else ref="messagesContainer"
+    class="pb-7 m-1 flex flex-col space-y-4 max-h-[80dvh] overflow-y-auto scroll-smooth overflow-x-hidden">
+    <div v-for="(message, index) in messages" :key="index" v-if="messages.length > 0">
       <div v-if="message.sender === 'user'"
         class="text-slate-900 dark:text-pink-300 text-lg font-monts font-medium justify-end flex text-end">
         <p class="bg-white/60 dark:bg-transparent rounded-xl px-2">{{ message.content }}</p>
