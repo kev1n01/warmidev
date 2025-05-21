@@ -1,0 +1,60 @@
+---
+import IconCheck from "@/icons/IconCheck.astro";
+import { UserButton } from "@clerk/astro/components";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import IconMoon from "@/icons/IconMoon.astro";
+import IconSun from "@/icons/IconSun.astro";
+const currentLang = Astro.currentLocale || "es";
+
+---
+
+<UserButton>
+  <UserButton.MenuItems>
+    <UserButton.Link label="Ver certificado" href={getRelativeLocaleUrl(currentLang, "/certificado")}>
+      <IconCheck className="text-white size-4" slot="label-icon" />
+    </UserButton.Link>
+    <UserButton.Action label="Cambiar tema" clickIdentifier="change_theme">
+      <p slot="label-icon">
+          <IconMoon slot="label-icon" className="hidden dark:block text-white size-4" />
+          <IconSun slot="label-icon" className="block dark:hidden text-white size-4" />
+      </p>
+    </UserButton.Action>
+
+  </UserButton.MenuItems>
+</UserButton>
+
+<script>
+  document.addEventListener('clerk:menu-item-click', (e: any) => {
+    if (e.detail === 'change_theme') {
+      if (document.documentElement.classList.contains("dark")) {
+          document.documentElement.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+      } else {
+          document.documentElement.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+      }
+    }
+  })
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    const userTheme = localStorage.getItem("theme");
+    const systemTheme = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+    ).matches;
+
+    const themeCheck = () => {
+        if (userTheme === "dark") {
+            document.documentElement.classList.add("dark");
+        } else if (userTheme === "light") {
+            document.documentElement.classList.remove("dark");
+        } else {
+            if (systemTheme) {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+        }
+    };
+    themeCheck();
+  });
+</script>

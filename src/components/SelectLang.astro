@@ -5,6 +5,7 @@ const currentLang = Astro.currentLocale || "es";
 const n_paths = currentUrl.pathname.split("/");
 let isDetailTopic = `/${currentLang}/temas/${n_paths[3]}/` === currentUrl.pathname;
 let isDetailTopicEs = `/temas/${n_paths[2]}/` === currentUrl.pathname;
+const { className } = Astro.props
 
 const redirectPath = (lang: string) => {
     if (isDetailTopic) {
@@ -34,7 +35,7 @@ const redirectPath = (lang: string) => {
 ---
 
 <div
-    class="fixed right-[8rem] xl:right-[21rem] xs:right-[6rem] 2xl:right-[23rem] mt-2.5 top-16 z-20 sm:max-w-60 max-w-96 opacity-0 invisible transition-all duration-200"
+    class={`${className} fixed right-[8rem] xl:right-[21rem] xs:right-[6rem] 2xl:right-[23rem] mt-2.5 top-16 z-20 sm:max-w-60 max-w-96 opacity-0 invisible transition-all duration-200`}
     id="select-menu"
 >
     <nav
@@ -77,13 +78,23 @@ const redirectPath = (lang: string) => {
 
 <script>
     const selectToggle = document.querySelector("#select-toggle");
+    const selectLang = document.querySelector("#select-lang");
     const selectMenu = document.querySelector("#select-menu") as HTMLElement;
     const b_el = document.querySelector("#b_el");
     // Función para actualizar la posición del menú
     function updateMenuPosition() {
-        if (selectToggle && selectMenu) {
-            const buttonRect = selectToggle.getBoundingClientRect();
-            selectMenu.style.top = `${buttonRect.bottom + 8}px`;
+        if (selectToggle || selectMenu || selectLang) {
+            const buttonRect = selectToggle?.getBoundingClientRect();
+            const buttonRectLang = selectLang?.getBoundingClientRect();
+            if (window.location.pathname === '/'){
+              if (buttonRect) {
+                  selectMenu.style.top = `${buttonRect.bottom + 8}px`;
+              }
+            }else{
+              if (buttonRectLang) {
+                selectMenu.style.bottom = `${buttonRectLang.top + 8}px`;
+              }
+            }
         }
         b_el?.classList.add("bg-black/50");
         b_el?.classList.remove("bg-black/25");
@@ -91,6 +102,13 @@ const redirectPath = (lang: string) => {
 
     // Actualizar posición cuando se abre el menú
     selectToggle?.addEventListener("click", () => {
+        selectMenu?.classList.toggle("opacity-0");
+        selectMenu?.classList.toggle("opacity-100");
+        selectMenu?.classList.toggle("invisible");
+        selectMenu?.classList.toggle("visible");
+    });
+
+    selectLang?.addEventListener("click", () => {
         selectMenu?.classList.toggle("opacity-0");
         selectMenu?.classList.toggle("opacity-100");
         selectMenu?.classList.toggle("invisible");
@@ -106,8 +124,10 @@ const redirectPath = (lang: string) => {
         if (
             selectMenu &&
             !selectMenu.contains(event.target as Node) &&
-            selectToggle &&
-            !selectToggle.contains(event.target as Node)
+            (selectToggle &&
+            !selectToggle.contains(event.target as Node) || 
+            selectLang &&
+            !selectLang.contains(event.target as Node))
         ) {
             selectMenu.classList.add("opacity-0");
             selectMenu.classList.add("invisible");
