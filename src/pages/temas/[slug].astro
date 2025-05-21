@@ -30,9 +30,9 @@ if (!tema) {
 ---
 
 <LayoutAuth>
-    <div class="space-y-2 pb-10 pt-3 text-white">
+    <div class="space-y-2 pb-2 pt-3 text-white">
         <div class="flex justify-between items-center">
-            <div class="p-2 flex gap-2 items-center">
+            <div class="flex gap-2 items-center">
                 <a
                     href={getRelativeLocaleUrl(currentLang, "/temas")}
                     class="w-12 h-12 rounded-full bg-black/40 shadow-inner shadow-white/40 flex justify-center items-center hover:scale-105 cursor-pointer group relative"
@@ -52,16 +52,20 @@ if (!tema) {
             </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-0 sm:gap-4">
-            <!-- Resources -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3  gap-0 sm:gap-4">
+            <!-- Resources and video -->
             <div
                 class="col-span-2 rounded-lg w-full p-4 mb-2 sm:mb-0 bg-white/10 backdrop-blur-2xl"
             >
-                <div class="p-2 text-center font-buycat text-2xl text-white">
+                <div class="p-[56.25%_0_0_0] relative">
+                  <iframe src={tema.urlvideo} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="absolute top-0 left-0 w-full h-full rounded-lg" title={tema.titulo}></iframe>
+                </div>
+                <div class="pt-2 text-center font-buycat text-lg sm:text-2xl text-white">
                     <p>{translateLabels("topics.details.resource.title")}</p>
                 </div>
+                <!-- Resources -->
                 <div
-                    class="overflow-y-auto sm:h-[30rem] h-[15rem] border-white/15 w-full"
+                    class="overflow-y-auto h-[15rem] border-white/15 w-full mt-1"
                     id="scrollItem"
                 >
                     <div class="block sm:hidden">
@@ -134,7 +138,7 @@ if (!tema) {
             <!-- tasks -->
             <div
                 id="scrollItem"
-                class="sm:h-[35rem] overflow-y-auto h-[10rem] border-white/50 backdrop-blur-3xl col-span-1 rounded-lg w-full bg-white/10"
+                class="lg:h-auto 2xl:h-full overflow-y-auto h-[10rem] border-white/50 backdrop-blur-3xl col-span-1 lg:col-span-2 2xl:col-span-1 rounded-lg w-full"
             >
                 {
                     tema.tareas ? (
@@ -144,10 +148,10 @@ if (!tema) {
                                 open
                             >
                                 <summary class="text-gray-white dark:text-gray-300 flex items-center justify-between list-none font-semibold px-4 py-3">
-                                    {translateLabels(
-                                        "topics.details.prefix.task",
-                                    )}
-                                    : {tarea.titulo}
+                                    <p>
+                                      <span>{translateLabels("topics.details.prefix.task")}:</span>
+                                     {tarea.titulo}
+                                    </p>
                                     <svg
                                         class="w-5 h-5 transform transition-transform duration-200 group-open:rotate-90"
                                         fill="none"
