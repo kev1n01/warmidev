@@ -1,0 +1,9 @@
+---
+import LayoutAuth from "@/layouts/LayoutAuth.astro";
+import CertificateBody from "@/partials/CertificateBody.vue";
+const user = await Astro.locals.currentUser()
+---
+
+<LayoutAuth>
+    <CertificateBody client:load user={Object(user)}/>
+</LayoutAuth>

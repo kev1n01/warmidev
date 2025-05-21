@@ -16,6 +16,8 @@ export const labels = {
         "nav.about.href": "nosotros",
         "nav.sponsors": "Patrocinadores",
         "nav.sponsors.href": "patrocinadores",
+        "nav.testimonials": "Testimonios",
+        "nav.testimonials.href": "testimonios",
 
         "header.btn.translate": "Traducir",
         "header.btn.theme.dark": "Modo oscuro",
@@ -50,6 +52,8 @@ export const labels = {
         "chat.buttonfloat.title": "Abrir chat",
         "chat.button.hidden.label": "Cerrar chat",
         "chatbot.loading.messages": "Cargando mensajes",
+        "chatbot.welcome": "Hola",
+        "chatbot.question.help": "¿tienes dudas?",
 
         // NavbarDots
         "dot.home": "Inicio",
@@ -70,6 +74,8 @@ export const labels = {
         "nav.about.href": "about",
         "nav.sponsors": "Sponsors",
         "nav.sponsors.href": "sponsors",
+        "nav.testimonials": "Testimonials",
+        "nav.testimonials.href": "testimonials",
 
         "header.btn.translate": "Translate",
         "header.btn.theme.dark": "Mode dark",
@@ -104,6 +110,8 @@ export const labels = {
         "chat.buttonfloat.title": "Open chat",
         "chat.button.hidden.label": "Close chat",
         "chatbot.loading.messages": "Loading messages",
+        "chatbot.welcome": "Hi",
+        "chatbot.question.help": "Do you have any questions?",
 
         // NavbarDots
         "dot.home": "Home",
@@ -124,6 +132,8 @@ export const labels = {
         "nav.about.href": "Ñuqanchik",
         "nav.sponsors": "Patrocinadores nisqakuna",
         "nav.sponsors.href": "Patrocinadores-nisqakuna",
+        "nav.testimonials": "Testimonios nisqakuna",
+        "nav.testimonials.href": "testimonios-nisqakuna",
 
         "header.btn.translate": "tikray",
         "header.btn.theme.dark": "Modo tutayaq",
@@ -158,6 +168,8 @@ export const labels = {
         "chat.buttonfloat.title": "kichasqa rimanakuy",
         "chat.button.hidden.label": "Wichqay rimanakuy",
         "chatbot.loading.messages": "Willakuykunata kargaspa",
+        "chatbot.welcome": "Allinllachu",
+        "chatbot.question.help": "¿Ima tapukuyniykipas kanchu?",
 
         // NavbarDots
         "dot.home": "wasi",

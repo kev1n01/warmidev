@@ -16,6 +16,8 @@
     "@clerk/astro": "^2.7.1",
     "@clerk/localizations": "^3.15.2",
     "astro": "^5.1.2",
+    "html2canvas": "^1.4.1",
+    "html2pdf.js": "^0.10.3",
     "tailwindcss": "^3.4.17",
     "vue-markdown-render": "^2.2.1"
   }

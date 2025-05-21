@@ -7,6 +7,7 @@ temas:
   - slug: "objetivos-bootcamp"
     titulo: "Objetivos del bootcamp"
     descripcion: "Se mencionaran lo que se busca y el alcance del bootcamp"
+    urlvideo: "https://www.youtube.com/embed/HBPZfoB74PI?si=vEkuN60wicxa2tt4"
     tips: "Necesitas conocerte más a tí, que a tu ex 🫡."
     tareas:
       - titulo: "Asignar horarios a su vida"
@@ -55,6 +56,7 @@ temas:
   - slug: "introduccion-ui-ux"
     titulo: "Introducción a UI/UX"
     descripcion: "Principio básicos que todo principiante debe de saber"
+    urlvideo: "https://www.youtube.com/embed/HBPZfoB74PI?si=vEkuN60wicxa2tt4"
     tips: "Un poco de estilo no hace daño 💅"
     tareas:
       - titulo: "Diseño básico de una página web"
@@ -97,6 +99,7 @@ temas:
   - slug: "presentacion-feedback-tarea-diseño"
     titulo: "Presentación y feedback avance de diseños"
     descripcion: "Presentación de tarea 1 de diseño y mentoria 🤗"
+    urlvideo: "https://www.youtube.com/embed/HBPZfoB74PI?si=vEkuN60wicxa2tt4"
     tips: "La mejor manera de aprender es recibiendo y brindando retroalimentación"
     tareas:
       - titulo: "Presentación de diseño básico en Figma"

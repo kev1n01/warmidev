@@ -4,7 +4,7 @@ import IconX from "@/icons/IconX.vue";
 import IconLoader from "@/icons/IconLoader.vue";
 import IconCircleMinus from "@/icons/IconCircleMinus.vue";
 import { qaStore } from "@/lib/qaStore";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useHiddenContainerChat } from "@/lib/useHiddenContainerChat";
 import { useMessageHandler } from "@/lib/messageHandler";
 const { isHidden } = useHiddenContainerChat();
@@ -36,10 +36,16 @@ const props = defineProps({
 const translateLabels = useTranslations(
     props.currentLang,
 );
+
+let pathname = ''
+onMounted(() => {
+  pathname = window.location.pathname
+})
+
 const sendMessage = async () => {
   if (inputText.value.trim() === "") return;
   // Si no hay parametro message redireccionar a warmichat
-  if (props.parammessage === "" && qaStore.messages.value.length === 0) {
+  if (props.parammessage === "" && qaStore.messages.value.length === 0 && pathname  === '/') {
     window.location.href = getRelativeLocaleUrl(props.currentLang, `/warmichat?message=${encodeURIComponent(inputText.value.trim())}`);
     return;
   }
@@ -66,7 +72,7 @@ function handleKeyDown(event) {
 
 <template>
   <div
-    class="w-full sm:w-10/12 2xl:w-1/2 sm:translate-x-[10%] 2xl:translate-x-1/2 sticky bottom-2 backdrop-blur-xl bg-pink-400/60 dark:bg-gray-800/50 px-7 py-3 rounded-3xl border-[1px] shadow-lg border-white shadow-pink-400/50 transition-opacity duration-200 ease-in-out"
+    class="w-full sm:w-10/12 2xl:w-1/2 sm:translate-x-[10%] 2xl:translate-x-1/2 sticky bottom-2 backdrop-blur-xl  bg-gray-800/50 px-7 py-3 rounded-3xl border-[1px] shadow-lg border-white shadow-pink-400/50 transition-opacity duration-200 ease-in-out"
     :class="{
       'opacity-100': isHidden,
       'opacity-0': !isHidden,
