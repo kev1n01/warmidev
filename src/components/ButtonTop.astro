@@ -31,4 +31,21 @@ import IconArrowUp from "@/icons/IconArrowUp.astro";
         }
     }
     window.addEventListener("scroll", handleScroll);
+
+    const pathHidden = [
+      "/warmichat",
+      "/warmichat/",
+      "/en/warmichat",
+      "/en/warmichat/",
+      "/qh/warmichat",
+      "/qh/warmichat/",
+    ]
+
+    document.addEventListener("DOMContentLoaded", () => {
+        let path = window.location.pathname;
+        if (pathHidden.includes(path)) {
+            const buttontop = document.querySelector("#button-top") as HTMLElement;
+            if (buttontop) buttontop.style.display = "none";
+        }
+    });
 </script>
