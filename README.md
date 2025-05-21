@@ -59,7 +59,7 @@ Es un **_bootcamp de programación_** abierta y dirigida a todas las mujeres de 
 ### Stack de tecnologias
 
 <div align="center">
-  <img src="https://skillicons.dev/icons?i=astro,tailwind,vite,npm" />
+  <img src="https://skillicons.dev/icons?i=astro,vue,tailwind,vite,npm" />
   <a href="https://clerk.com/" title="Clerk GOD">
     <img src="https://clerk.com/v2/favicon.ico" width="47" style="border-radius: 10px; background: black;" />
   <a/>
@@ -117,6 +117,7 @@ npm run dev
   - [ ] Suscripciones únicas como donación
 - Aplicación 
   - [x] Modo oscuro y claro
+  - [x] PWA
   - [x] Soporte multilenguaje i18n (español, inglés y quechua)
   - [x] Sistema de sesiones/temas por semana y sus detalles (recursos, actividades)
   - [ ] Registro de avances para habilitar certificado
