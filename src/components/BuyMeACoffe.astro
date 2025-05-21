@@ -1,0 +1,22 @@
+---
+import coffe from "@/assets/buycoffe.png";
+import TooltipCursor from "./TooltipCursor.astro";
+---
+
+<div class="bottom-14 right-3 font-semibold sm:bottom-7 sm:right-8 fixed">
+  <div class="flex items-center justify-center">
+    <!-- Contenedor de la imagen con peer (a la derecha) -->
+    <a href="https://buymeacoffee.com/kearnold" class="group relative">
+      <div
+        class="rounded-full bg-white p-0.5"
+      >
+        <img
+          src={coffe.src}
+          alt="Buy me a coffee"
+          class="size-10 rounded-full border-2 border-pipnk-500 transition-transform duration-300 hover:rotate-6 "
+        />
+      </div>
+      <TooltipCursor label="Buy me a coffe" position="bottom-[36px] -left-full !bg-white !text-gray-800"/>
+    </a>
+  </div>
+</div>

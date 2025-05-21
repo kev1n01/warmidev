@@ -1,7 +1,7 @@
 ---
 import LogoRef from "@/components/LogoRef.astro";
 import SelectLang from "@/components/SelectLang.astro";
-// import ThemeToogle from "@/components/ThemeToogle.astro";
+import ThemeToogle from "@/components/ThemeToogle.astro";
 import TooltipCursor from "@/components/TooltipCursor.astro";
 import { languageList } from "@/i18n/ui";
 import { useTranslations } from "@/i18n/utils";
@@ -79,7 +79,7 @@ const translateLabels = useTranslations(
                 />
             </button>
 
-            <!-- <ThemeToogle /> -->
+            <ThemeToogle />
 
             <SignedIn class="size-[35px]">
               <div class="size-[35px] bg-white/10 rounded-full">

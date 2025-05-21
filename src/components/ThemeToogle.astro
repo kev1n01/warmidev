@@ -9,6 +9,7 @@ const translateLabels = useTranslations(
     currentLang as keyof typeof languageList,
 );
 const { className } = Astro.props;
+const statusAuth = await Astro.locals.authStatus
 ---
 
 <script>
@@ -51,16 +52,21 @@ const { className } = Astro.props;
         themeCheck();
     });
 </script>
-<button
-    class={`${className} cursor-pointer bg-white/10 rounded-full transition-colors p-1.5`}
-    id="themeSwitcher"
->
-    <p class="hidden dark:block relative group">
-        <IconMoon className="w-5 h-5 sm:w-6 sm:h-6" />
-        <TooltipCursor label={translateLabels("header.btn.theme.dark")} position="top-[36px] left-1/2"/>
-    </p>
-    <p class="block dark:hidden relative group">
-        <IconSun className="w-5 h-5 sm:w-6 sm:h-6" />
-        <TooltipCursor label={translateLabels("header.btn.theme.light")} position="top-[36px] left-1/2" />
-    </p>
-</button>
+
+{
+  statusAuth === 'signed-out' && (
+  <button
+      class={`${className} cursor-pointer bg-white/10 rounded-full transition-colors p-1.5`}
+      id="themeSwitcher"
+  >
+      <p class="hidden dark:block relative group">
+          <IconMoon className="w-5 h-5 sm:w-6 sm:h-6" />
+          <TooltipCursor label={translateLabels("header.btn.theme.dark")} position="top-[36px] left-1/2"/>
+      </p>
+      <p class="block dark:hidden relative group">
+          <IconSun className="w-5 h-5 sm:w-6 sm:h-6" />
+          <TooltipCursor label={translateLabels("header.btn.theme.light")} position="top-[36px] left-1/2" />
+      </p>
+  </button>
+  )
+}

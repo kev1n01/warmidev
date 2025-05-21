@@ -3,7 +3,7 @@ const { label, position } = Astro.props;
 ---
 
 <span
-    class="absolute transform -translate-x-1/2 px-2 py-1 text-[10px] text-white bg-gray-800 rounded-md opacity-0 sm:group-hover:opacity-100 group-hover:opacity-0 transition-opacity duration-200 pointer-events-none whitespace-nowrap tracking-wider"
+    class="absolute transform -translate-x-1/2 px-2 py-1 text-[10px] dark:text-white text-gray-800 bg-white dark:bg-gray-800 rounded-md opacity-0 sm:group-hover:opacity-100 group-hover:opacity-0 transition-opacity duration-200 pointer-events-none whitespace-nowrap tracking-wider font-semibold"
     class:list={position}
 >
     {label}

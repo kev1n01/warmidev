@@ -1,13 +1,15 @@
 ---
 import Footer from "@/partials/Footer.astro";
 import Header from "@/partials/Header.astro";
-import ButtonTop from "@/components/ButtonTop.astro";
+// import ButtonTop from "@/components/ButtonTop.astro";
 import "../styles/global.css";
 import "../styles/custom-clerk.css";
 import { useTranslations } from "@/i18n/utils";
 import type { languageList } from "@/i18n/ui";
 import StreamChatBot from "@/partials/StreamChatBot.vue";
 import ButtonChatbot from "@/components/ButtonChatbot.vue";
+import BuyMeACoffe from "@/components/BuyMeACoffe.astro";
+
 const currentLang = Astro.currentLocale || "es";
 
 const translateLabels = useTranslations(
@@ -53,7 +55,8 @@ const names = user?.firstName || 'sin nombre'
 			<main class="flex-grow">
 				<slot />
 			</main>
-			<ButtonTop />
+      <BuyMeACoffe />
+			<!-- <ButtonTop /> -->
 			<ButtonChatbot client:load currentLang={String(currentLang)}/>
 			<StreamChatBot client:load urlbot={String(urlbot)} parammessage={String(parammessage)} names={String(names)} currentLang={String(currentLang)} />
 			<Footer />
