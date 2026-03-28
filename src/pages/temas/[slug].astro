@@ -10,7 +10,7 @@ import TooltipCursor from "@/components/TooltipCursor.astro";
 const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(
     currentLang as keyof typeof languageList,
-);
+); 
 
 const { slug } = Astro.params;
 
@@ -58,7 +58,20 @@ if (!tema) {
                 class="col-span-2 rounded-lg w-full p-4 mb-2 sm:mb-0 bg-white/10 backdrop-blur-2xl"
             >
                 <div class="p-[56.25%_0_0_0] relative">
-                  <iframe src={tema.urlvideo} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="absolute top-0 left-0 w-full h-full rounded-lg" title={tema.titulo}></iframe>
+                  {
+                    tema.urlvideo ? (
+                    <iframe src={tema.urlvideo} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="absolute top-0 left-0 w-full h-full rounded-lg" title={tema.titulo}></iframe>
+
+                    ) : (
+                      <div class="flex items-center justify-center text-center bg-white/20 border-white/20 rounded-lg sm:col-span-full absolute top-0 left-0 w-full h-full">
+                          <p class="text-white dark:text-gray-100 bg-black/10 px-3 py-2 rounded-lg">
+                              {translateLabels(
+                                  "topics.details.no.video",
+                              )}
+                          </p>
+                      </div>
+                    )
+                  }
                 </div>
                 <div class="pt-2 text-center font-buycat text-lg sm:text-2xl text-white">
                     <p>{translateLabels("topics.details.resource.title")}</p>
@@ -92,7 +105,7 @@ if (!tema) {
                                 ))
                             ) : (
                                 <div class="flex items-center justify-center text-center bg-white/15 border-white/20 rounded-lg sm:h-[30rem] h-[15rem] w-full">
-                                    <p class="text-white dark:text-gray-400 bg-black/10 px-3 py-2 rounded-lg">
+                                    <p class="text-white dark:text-gray-100 bg-black/10 px-3 py-2 rounded-lg">
                                         {translateLabels(
                                             "topics.details.no.resource",
                                         )}
@@ -123,7 +136,7 @@ if (!tema) {
                                     ))
                                 ) : (
                                     <div class="flex items-center justify-center text-center bg-white/5 border-white/20 rounded-lg sm:h-[30rem] h-[15rem] sm:col-span-full">
-                                        <p class="text-white dark:text-gray-400 bg-black/10 px-3 py-2 rounded-lg">
+                                        <p class="text-white dark:text-gray-100 bg-black/10 px-3 py-2 rounded-lg">
                                             {translateLabels(
                                                 "topics.details.no.resource",
                                             )}

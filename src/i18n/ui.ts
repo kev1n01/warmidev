@@ -42,6 +42,7 @@ export const labels = {
         "topics.details.no.task": "No hay tareas",
         "topics.details.no.resource": "No hay recursos",
         "topics.details.resource.title": "Recursos",
+        "topics.details.no.video": "Video no disponible",
 
         // footer
         "footer.madeby": "Hecho por",
@@ -100,6 +101,7 @@ export const labels = {
         "topics.details.no.task": "There are no tasks for this topic",
         "topics.details.no.resource": "There are no resources for this topic",
         "topics.details.resource.title": "Resources",
+        "topics.details.no.video": "Video not available",
         
         // footer
         "footer.madeby": "Made by",
@@ -158,6 +160,7 @@ export const labels = {
         "topics.details.no.task": "Kay temapaq manam llamkanakuna kanchu",
         "topics.details.no.resource": "Kay temapaq manam ima yanapakuykuna kanchu",
         "topics.details.resource.title": "Imakuna",
+        "topics.details.no.video": "Video mana kanchu",
 
         // footer
         "footer.madeby": "Ruwasqa",

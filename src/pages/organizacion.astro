@@ -1,0 +1,15 @@
+---
+import LayoutAuth from '@/layouts/LayoutAuth.astro'
+import { OrganizationList, OrganizationSwitcher } from '@clerk/astro/components'
+import { OrganizationProfile } from '@clerk/astro/components'
+
+---
+<LayoutAuth>
+  <!-- <OrganizationList
+  afterCreateOrganizationUrl="/organization/:slug"
+  afterSelectPersonalUrl="/user/:id"
+  afterSelectOrganizationUrl="/organization/:slug"
+  /> -->
+  <OrganizationSwitcher />
+  <OrganizationProfile />
+</LayoutAuth>

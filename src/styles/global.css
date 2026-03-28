@@ -57,3 +57,8 @@ html, body{
     font-family: 'Sakurata';
     src: url('../assets/font/sakurata.ttf') format('truetype');
 }
+
+.ndfHFb-c4YZDc-Wrql6b{
+  display: none !important;
+  opacity: 0 !important;
+}

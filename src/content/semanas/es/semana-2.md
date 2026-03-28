@@ -7,6 +7,7 @@ temas:
   - slug: "uso-vscode-manejo-terminal"
     titulo: "uso Vscode, IDEs y manejo de terminal"
     descripcion: ""
+    urlvideo: "https://drive.google.com/file/d/1wvI3yWduMLIEvNg7OfZkrvJ03nqJpGvU/preview"
     tips: "Siempre aumenta tu productividad"
     recursos:
       - nombre: "▶️ Oh my posh"
